@@ -1,0 +1,36 @@
+body {
+    font-family: 'Vazir', sans-serif;
+    direction: rtl;
+    background-color: #1c1c1c;
+    color: #fff;
+}
+.meal-box {
+    background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 25px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+.form-control, .form-select {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #28a745;
+}
+.form-control:focus, .form-select:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.7);
+}
+.btn-custom {
+    background-color: #28a745;
+    border: none;
+    transition: 0.3s;
+}
+.btn-custom:hover {
+    background-color: #218838;
+}
+.list-group-item {
+    background-color: #333;
+    border: none;
+    color: #fff;
+    border-bottom: 1px solid #555;
+}

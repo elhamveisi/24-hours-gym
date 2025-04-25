@@ -1,0 +1,23 @@
+body{
+    text-align: right;
+    direction: rtl;
+}
+body {
+    font-family: 'Vazir', sans-serif;
+    background-color: #f8f9fa;
+}
+.about-section {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    padding: 40px;
+    margin-top: 50px;
+}
+.about-img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+h2 {
+    color: #1e1e1e;
+    margin-bottom: 20px;
+}

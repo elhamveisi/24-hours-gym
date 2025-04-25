@@ -1,0 +1,39 @@
+
+body {
+    background-color: #111;
+    color: #ccc;
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+.container {
+    max-width: 400px;
+    margin-top: 100px;
+}
+.result {
+    font-weight: bold;
+}
+.normal {
+    color: #b30000;
+}
+.danger {
+    color: #dc3545;
+}
+.form-control {
+    background-color: #222;
+    border: 1px solid #555;
+    color: #ccc;
+}
+.form-control:focus {
+    background-color: #222;
+    color: #fff;
+    border-color: #28a745;
+    box-shadow: none;
+}
+.btn-primary {
+    background-color:#218838;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #b30000;
+}

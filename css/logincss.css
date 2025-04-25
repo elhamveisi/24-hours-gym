@@ -1,0 +1,122 @@
+body {
+    font-family: 'Arial', sans-serif;
+    direction: rtl;
+    background-color: #000000; 
+    color: #000000; 
+}
+
+.login-container {
+    background: #303030; 
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+
+.login-bakgrund {
+    background: #000000; 
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 50%; 
+    max-width: 400px; 
+}
+
+.login-container {
+    background: #535353; 
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 100%; 
+    max-width: 400px; 
+}
+
+.login-header {
+    margin-bottom: 20px;
+}
+
+.login-header h2 {
+    color: #09ff00; 
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.nav-tabs .nav-link {
+    color: #00ff00; 
+    background: #00ff00(54 4% 30% / 0.384)9;
+}
+
+.nav-tabs .nav-link.active {
+    color: #999999; 
+    background: #999999; 
+    border-color: #ffffff;
+}
+
+.tab-content {
+    padding: 20px;
+    background: #4e4e4efb;
+    border: 1px solid
+    border-radius: 10px;;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    text-align: right;
+    margin-bottom: 5px;
+    color: #00ff00;
+}
+
+.form-control {
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: right;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #d9534f;
+    box-shadow: 0 0 5px rgba(217, 83, 79, 0.5);
+}
+
+.btn-primary, .btn-danger {
+    color: rgb(255, 0, 0);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #ffffff; 
+}
+
+.btn-danger {
+    background-color: #4d0c09; 
+}
+
+.btn-primary:hover {
+    background-color: #4d0c09; 
+
+.btn-danger:hover {
+    background-color: #4d0c09;
+}
+{
+    background: linear-gradient(45deg, #4d0c09,#00d0ff );
+
+}

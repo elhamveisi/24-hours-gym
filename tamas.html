@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/tamas.css">
+</head>
+<body>
+<div class="contact-container animate-fade-in">
+    <h1>تماس با ما</h1>
+    <form>
+        <div class="input-group">
+            <label for="fname">نام </label>
+            <div class="input-wrapper">
+                <i class="bi bi-person-fill"></i>
+                <input type="text" id="fname" name="fname" placeholder="نام خود را وارد کنید" required>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="lname"> نام خانوادگی</label>
+            <div class="input-wrapper">
+                <i class="bi bi-person-fill"></i>
+                <input type="text" id="lname" name="lname" placeholder="نام خانوادگی خود را وارد کنید" required>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="email">ایمیل</label>
+            <div class="input-wrapper">
+                <i class="bi bi-envelope-fill"></i>
+                <input type="email" id="email" name="email" placeholder="ایمیل خود را وارد کنید" required>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="message">پیام</label>
+            <div class="input-wrapper">
+                <i class="bi bi-chat-left-dots-fill"></i>
+                <textarea id="message" name="message" rows="4" placeholder="پیام خود را وارد کنید" required></textarea>
+            </div>
+        </div>
+        <button type="submit">ارسال پیام</button>
+    </form>
+</div>
+</body>
+</html>
