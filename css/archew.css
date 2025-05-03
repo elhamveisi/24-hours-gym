@@ -1,0 +1,85 @@
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    direction: rtl;
+}
+.container {
+    margin-top: 30px;
+}
+.filter-section {
+    background-color: #343a40;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.filter-section h5 {
+    color: #fff;
+}
+.form-label {
+    color: #adb5bd;
+}
+.btn-apply {
+    background-color: #28a745; /* سبز */
+    color: #fff;
+    border: none;
+}
+.btn-apply:hover {
+    background-color: #218838; /* سبز تیره */
+}
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: box-shadow 0.2s ease;
+}
+.product-card:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.product-card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+.price {
+    color: #dc3545; /* قرمز */
+    font-weight: bold;
+}
+.product-card h5 {
+    color: #28a745; /* سبز */
+}
+.product-card small {
+    color: #888;
+}
+
+/* فیلتر سمت راست */
+.filter-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.filter-section {
+    width: 100%;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+}
+
+/* کارت محصولات */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product-list .col-md-4 {
+    flex: 1 1 30%;
+}
+
+/* دکمه اعمال فیلتر */
+.filter-wrapper form button {
+    margin-top: 15px;
+}
