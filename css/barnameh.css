@@ -1,36 +1,183 @@
 body {
-    font-family: 'Vazir', sans-serif;
     direction: rtl;
-    background-color: #1c1c1c;
-    color: #fff;
+    font-family: 'Vazir', sans-serif;
+    background: linear-gradient(135deg, #f0f7f4, #d6f4ea); /* گرادیانت سبز ملایم */
+    color: #444;
+
 }
-.meal-box {
-    background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+
+h2 {
+    color: #28a745; /* سبز ملایم */
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+form {
+    background: #ffffff;
+    padding: 40px;
     border-radius: 20px;
-    padding: 25px;
-    margin-top: 25px;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+
+    transition: all 0.3s ease-in-out;
 }
-.form-control, .form-select {
-    background-color: #2a2a2a;
-    color: #fff;
-    border: 1px solid #28a745;
+
+form:hover {
+    transform: scale(1.02); /* بزرگتر شدن فرم با حرکت موس */
 }
-.form-control:focus, .form-select:focus {
-    border-color: #dc3545;
-    box-shadow: 0 0 5px rgba(220, 53, 69, 0.7);
+
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #28a745; /* سبز ملایم */
+    font-size: 18px;
 }
+
+.form-control,
+.form-select {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
 .btn-custom {
-    background-color: #28a745;
+    background-color: #28a745; /* سبز ملایم */
+    color: #fff;
+    font-weight: bold;
+    padding: 14px 40px;
     border: none;
-    transition: 0.3s;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 18px;
 }
+
 .btn-custom:hover {
     background-color: #218838;
+    box-shadow: 0 5px 25px rgba(40, 167, 69, 0.3);
+    transform: scale(1.05); /* بزرگتر شدن دکمه هنگام هاور */
 }
+
+.meal-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.meal-box:hover {
+    transform: scale(1.02); /* بزرگتر شدن با حرکت موس */
+}
+
+.meal-box h4 {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
 .list-group-item {
-    background-color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+.list-group-item:hover {
+    background-color: #ecf0f1;
+    transform: scale(1.02); /* بزرگتر شدن آیتم‌ها هنگام هاور */
+}
+
+.container {
+    padding: 20px;
+}
+
+.col-md-4,
+.col-md-2,
+.col-md-3 {
+    transition: all 0.3s ease;
+}
+
+.col-md-4:hover,
+.col-md-2:hover,
+.col-md-3:hover {
+    transform: scale(1.05);
+}
+body {
+    background: linear-gradient(135deg, #f0f7f4, #d6f4ea); /* گرادیانت سبز ملایم */
+    color: #333;
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    text-align: right;
+    margin: 0;
+}
+
+.container-fluid {
+    padding: 0; /* حذف پدینگ اضافی */
+    margin: 0; /* حذف مارژین اضافی */
+}
+
+.img-fluid {
+    width: 100%;
+    object-fit: cover;
+    height: 100vh; /* تنظیم ارتفاع تصویر به طور کامل */
+    margin: 0; /* حذف فاصله اضافی */
+}
+
+.container {
+    margin-top: 0; /* حذف فاصله از بالای صفحه */
+}
+
+.btn-custom {
+    background-color: #00c37a;
+    color: white;
     border: none;
-    color: #fff;
-    border-bottom: 1px solid #555;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #009e63;
+}
+
+.meal-box {
+    margin-top: 30px;
+}
+
+.meal-box ul {
+    list-style-type: none;
+    padding: 0;
+}/* حذف فاصله‌ها برای بنر و منو */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* حذف فاصله بالا برای بنر */
+.container-fluid {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* حذف فاصله پایین برای منو */
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+/* حذف فاصله‌های احتمالی از بنر */
+.container-fluid img {
+    margin: 0 !important;
+    padding: 0 !important;
 }

@@ -1,0 +1,162 @@
+body {
+    font-family: 'Vazir', sans-serif;
+    background-color: #ffffff;
+}
+
+.h-custom {
+    height: 100vh;
+}
+
+.card-registration {
+    border-radius: 15px;
+}
+
+.product-img {
+    width: 100px;
+    height: auto;
+}
+
+.product-row {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.summary-box {
+    background-color: #f8f9fa;
+    border-radius: 0 15px 15px 0;
+}
+
+.btn-main {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.btn-main:hover {
+    background-color: #b71c1c;
+}
+
+.recent-view-section {
+    margin-top: 40px;
+}
+
+.recent-view-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.recent-view-products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.recent-product {
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.recent-product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.recent-product h6 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.recent-product .price {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .recent-product {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .recent-product {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .summary-box {
+        border-radius: 15px 15px 0 0;
+    }
+}
+
+.recent-view-section {
+    margin-top: 40px;
+}
+
+.recent-view-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.recent-view-products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.recent-product {
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recent-product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.recent-product img {
+    width: 100%;
+    height: 250px; /* تنظیم ارتفاع تصاویر */
+    object-fit: contain; /* تنظیم برای جلوگیری از بریدگی تصویر */
+    transition: transform 0.3s ease;
+}
+
+.recent-product img:hover {
+    transform: scale(1.05);
+}
+
+.recent-product h6 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.recent-product .price {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .recent-product {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .recent-product {
+        width: 100%;
+    }
+}

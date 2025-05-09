@@ -135,6 +135,28 @@ h2::after {
     font-size: 14px;
     color: #ffc000;
 }
+/* حذف فاصله‌ها برای بنر و منو */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* حذف فاصله بالا برای بنر */
+.container-fluid {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* حذف فاصله پایین برای منو */
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+/* حذف فاصله‌های احتمالی از بنر */
+.container-fluid img {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 
 

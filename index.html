@@ -4,85 +4,282 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>باشگاه 24 ساعته</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+
 </head>
-<body class="bg-dark text-white">
+<body class="bg-light text-dark">
 
-<!-- نوار بالا -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-danger">
-    <div class="container">
-        <a class="navbar-brand neon-green fs-4" href="#">24 HOURS</a>
-        <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-light" href="#">خانه</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="login.html">ثبت نام/ورود</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="pro.html">محصولات</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="barnameh%20(1).html">برنامه غذایی</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="bmi_calculator.html">شاخص توده بدنی</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="eshtrack.html">اشتراک</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="tamas.html">تماس</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="about.html">درباره ما</a></li>
 
+<nav class="navbar navbar-expand-lg ultra-navbar">
+    <div class="container d-flex align-items-center justify-content-between">
+        <!-- لوگو -->
+        <a class="navbar-brand neon-logo" href="#">24 HOURS</a>
+
+        <!-- منوی موبایل -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <i class="fas fa-bars text-light fs-4"></i>
+        </button>
+
+        <!-- محتوا -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">خدمات</a>
+                    <ul class="dropdown-menu fancy-dropdown">
+                        <li><a class="dropdown-item" href="barnameh%20(1).html">برنامه غذایی</a></li>
+                        <li><a class="dropdown-item" href="#">برنامه تمرینی</a></li>
+                        <li><a class="dropdown-item" href="bmi_calculator.html">شاخص توده بدنی</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="pro.html">محصولات</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+                <li class="nav-item"><a class="nav-link" href="tamas.html">تماس با ما</a></li>
             </ul>
+
+            <!-- جستجو + دکمه‌ها -->
+            <div class="d-flex align-items-center gap-3">
+                <!-- جستجو -->
+                <div class="searchbox position-relative">
+                    <input class="form-control" type="search" placeholder="جستجو">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+
+                <!-- سبد خرید -->
+                <a href="shopppingcard.html" class="position-relative">
+                    <i class="fas fa-shopping-cart fa-lg text-light"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            0
+            <span class="visually-hidden">تعداد اقلام</span>
+        </span>
+                </a>
+
+                <!-- دکمه‌ها -->
+                <a href="login.html" class="btn btn-glass"><i class="fas fa-sign-in-alt me-1"></i> ورود</a>
+                <a href="login.html" class="btn btn-neon"><i class="fas fa-user-plus me-1"></i> ثبت‌نام</a>
+            </div>
+
         </div>
-    </div>
 </nav>
+
 
 <!-- تایمر و شعار -->
 <header class="text-center py-5" style="background: url('img/9.jpg') no-repeat center center/cover;">
-    <h1 id="clock" class="display-3 text-danger fw-bold">00:00:00</h1>
-    <p class="fs-4 text-error">مهم نیست ساعت چند باشه، ما همیشه بازیم.</p>
-    <a href="#" class="btn btn-outline-danger mt-3">شروع کن</a>
+    <h1 id="clock" class="display-3 ">00:00:00</h1>
+    <p class="fs-4 text-white">مهم نیست ساعت چند باشه، ما همیشه بازیم.</p>
+    <a href="#" class="btn btn-outline-success mt-3">شروع کن</a>
 </header>
 
-<!-- معرفی و خدمات -->
+
+
+    <!-- About Section -->
+    <section class="container py-5 text-center">
+        <h3 class="text-danger mb-3">درباره باشگاه 24 HOURS</h3>
+        <p class="mx-auto" style="max-width: 800px;">
+            ما در 24 Hours به شما این امکان را می‌دهیم که در هر ساعت از شبانه‌روز تمرین کنید. با بهترین تجهیزات و مربیان حرفه‌ای در خدمت شماییم تا به اهدافت برسید.
+        </p>
+        <img src="img/unnamed.jpg" class="img-fluid rounded mt-3" style="max-width: 600px;">
+    </section>
+
+
+<!-- Services Section -->
 <section class="container py-5">
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <h3 class="text-danger">درباره باشگاه 24 HOURS</h3>
-            <p>
-                ما در 24 Hours به شما این امکان را می‌دهیم که در هر ساعت از شبانه‌روز تمرین کنید.
-                با بهترین تجهیزات و مربیان حرفه‌ای در خدمت شماییم تا به اهدافت برسید.
-            </p>
-            <img src="img/unnamed.jpg" alt="درباره باشگاه" class="img-fluid rounded mb-4">
+    <div class="row text-center">
+        <div class="col-md-3">
+            <i class="fas fa-dumbbell fa-3x text-danger mb-3"></i>
+            <p>تمرینات شخصی‌سازی‌شده</p>
         </div>
-        <div class="col-md-6">
-            <h3 class="text-light mb-3">خدمات ما</h3>
-            <ul class="list-unstyled fs-5">
-                <li><i class="fas fa-dumbbell text-danger"></i> ✅ تمرینات شخصی‌سازی‌شده</li>
-                <li><i class="fas fa-clock text-danger"></i> ✅ باشگاه باز ۲۴ ساعته</li>
-                <li><i class="fas fa-apple-alt text-danger"></i> ✅ برنامه تغذیه مخصوص</li>
-                <li><i class="fas fa-user-tie text-danger"></i> ✅ مربیان حرفه‌ای</li>
-            </ul>
+        <div class="col-md-3">
+            <i class="fas fa-clock fa-3x text-danger mb-3"></i>
+            <p>باشگاه باز ۲۴ ساعته</p>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <img src="img/vasileh.webp" alt="تجهیزات" class="img-fluid rounded mb-3">
+        <div class="col-md-3">
+            <i class="fas fa-apple-alt fa-3x text-danger mb-3"></i>
+            <p>برنامه تغذیه مخصوص</p>
         </div>
-        <div class="col-md-4">
-            <img src="img/m4.jpg" alt="مربیان" class="img-fluid rounded mb-3">
-        </div>
-        <div class="col-md-4">
-            <img src="img/tgrfdg.jpg" alt="تمرین" class="img-fluid rounded mb-3">
+        <div class="col-md-3">
+            <i class="fas fa-user-tie fa-3x text-danger mb-3"></i>
+            <p>مربیان حرفه‌ای</p>
         </div>
     </div>
 </section>
 
-<footer class="text-center py-3 border-top border-danger mt-8">
-    <p class="text-secondary">© 2025 باشگاه 24 ساعته | تمام حقوق محفوظ است.</p>
-</footer>
+<section class="container py-5">
+    <h2 class="text-center text-dark mb-5">🌟 پلن‌های اشتراک VIP</h2>
+    <div class="row g-4">
+        <!-- برنزی -->
+        <div class="col-md-4">
+            <div class="plan-card bronze">
+                <div>
+                    <div class="plan-title">پلن برنزی</div>
+                    <div class="plan-price">۱۹۹,۰۰۰ تومان / ماه</div>
+                    <ul class="plan-features">
+                        <li>دسترسی محدود</li>
+                        <li>بدون مربی</li>
+                        <li>بدون پشتیبانی</li>
+                    </ul>
+                </div>
+                <button class="plan-button">ثبت‌نام</button>
+            </div>
+        </div>
 
+        <!-- نقره‌ای -->
+        <div class="col-md-4">
+            <div class="plan-card silver">
+                <div>
+                    <div class="plan-title">پلن نقره‌ای</div>
+                    <div class="plan-price">۲۹۹,۰۰۰ تومان / ماه</div>
+                    <ul class="plan-features">
+                        <li>دسترسی کامل</li>
+                        <li>برنامه تمرین پایه</li>
+                        <li>پشتیبانی عمومی</li>
+                    </ul>
+                </div>
+                <button class="plan-button">ثبت‌نام</button>
+            </div>
+        </div>
+
+        <!-- طلایی VIP -->
+        <div class="col-md-4">
+            <div class="plan-card gold">
+                <div>
+                    <div class="plan-title">پلن طلایی VIP</div>
+                    <div class="plan-price">۴۹۹,۰۰۰ تومان / ماه</div>
+                    <ul class="plan-features">
+                        <li>مربی اختصاصی</li>
+                        <li>برنامه تغذیه ویژه</li>
+                        <li>پشتیبانی ۲۴ ساعته</li>
+                    </ul>
+                </div>
+                <button class="plan-button">شروع حرفه‌ای</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- نظرات کاربران --><section class="container py-5">
+    <h2 class="text-center text-dark mb-5">نظرات کاربران</h2>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="card shadow-sm border-0 p-4 text-center">
+                    <img src="img/user1.jpg" alt="کاربر" class="rounded-circle mx-auto mb-3" width="80" height="80">
+                    <h5 class="fw-bold mb-1">علی محمدی</h5>
+                    <small class="text-muted d-block mb-2">۱۴۰۴/۰۹/۲۰</small>
+                    <div class="text-warning mb-2">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <p class="comment-text text-secondary">این باشگاه واقعاً عالیه! همیشه به من انگیزه می‌ده تا بهتر عمل کنم. به همه توصیه می‌کنم!</p>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="card shadow-sm border-0 p-4 text-center">
+                    <img src="img/user2.jpg" alt="کاربر" class="rounded-circle mx-auto mb-3" width="80" height="80">
+                    <h5 class="fw-bold mb-1">سمانه رضایی</h5>
+                    <small class="text-muted d-block mb-2">۱۴۰۴/۰۸/۱۵</small>
+                    <div class="text-warning mb-2">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    </div>
+                    <p class="comment-text text-secondary">باشگاه بسیار مجهز و دوستانه است. من به طور ویژه از مربیانش خیلی راضی‌ام!</p>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="card shadow-sm border-0 p-4 text-center">
+                    <img src="img/user3.jpg" alt="کاربر" class="rounded-circle mx-auto mb-3" width="80" height="80">
+                    <h5 class="fw-bold mb-1">فاطمه هوشنگی</h5>
+                    <small class="text-muted d-block mb-2">۱۴۰۴/۰۸/۱۵</small>
+                    <div class="text-warning mb-2">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    </div>
+                    <p class="comment-text text-secondary">باشگاه خوبیه من که خیلی پیشرفت کردم و تونستم به هیکل مورد علاقه ام برسم!</p>
+                </div>
+            </div>
+            <!-- اسلایدهای بیشتر... -->
+
+        </div>
+
+        <!-- دکمه‌های ناوبری -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+<!-- در پایین صفحه قبل از پایان تگ body، این خط را اضافه کنید -->
+<div id="footer-container"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // ساعت زنده
-    function updateClock() {
-        const now = new Date();
-        const time = now.toLocaleTimeString('fa-IR', { hour12: false });
-        document.getElementById('clock').textContent = time;
+    // تابع برای اجرای اسکریپت‌ها بعد از لود کل صفحه و هدر
+    function initScripts() {
+        // ⏰ ساعت زنده
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('fa-IR', { hour12: false });
+            const clock = document.getElementById('clock');
+            if (clock) {
+                clock.textContent = time;
+            }
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
     }
-    setInterval(updateClock, 1000);
-    updateClock();
+
+
 </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    // راه‌اندازی Swiper برای نظرات
+    const swiper = new Swiper('.swiper-container', {
+        loop: true, // چرخش بی‌پایان اسلایدها
+        slidesPerView: 1, // نمایش یک نظر در هر اسلاید
+        spaceBetween: 20, // فاصله بین اسلایدها
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 5000, // اسلایدها هر 5 ثانیه تغییر کنند
+        },
+    });
+    window.addEventListener('DOMContentLoaded', () => {
+        // لود هدر
+        fetch('header.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+                initScripts();
+            })
+            .catch(err => {
+                console.error('خطا در لود هدر:', err);
+                initScripts();
+            });
+
+        // لود فوتر
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(err => {
+                console.error('خطا در لود فوتر:', err);
+            });
+    });
+
+</script>
+
+
+
+
+
 </body>
 </html>

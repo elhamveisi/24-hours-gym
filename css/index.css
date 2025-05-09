@@ -1,13 +1,261 @@
+/* فونت فارسی Vazir */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
+/* استایل عمومی */
 body {
     font-family: 'Vazir', sans-serif;
+    background-color: #f8f9fa;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    direction: rtl;
 }
 
-.neon-green {
-    color: #39ff14;
-    font-weight: bold;
+a {
+    color: #ff6161;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blanchedalmond;
+    text-decoration: underline;
+}
+
+/* هدر */
+header {
+    background: url('img/9.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 #clock {
-    font-family: 'Courier New', monospace;
-    letter-spacing: 5px;
-    }
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* فوتر */
+footer {
+    background-color: #222;
+    color: #999;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+}
+
+footer a {
+    color: #fff;
+}
+
+footer a:hover {
+    color: #e50914;
+}
+
+/* دکمه‌ها */
+button, .btn, .plan-button, .contact-form button {
+    background-color: #218838;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover, .btn:hover, .plan-button:hover, .contact-form button:hover {
+    background-color: #009e63;
+}
+
+/* کارت‌ها */
+.card, .plan-card {
+    background-color: #343a40;
+    color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.card:hover, .plan-card:hover {
+    transform: scale(1.05);
+}
+
+/* کارت‌های پلن */
+.plan-title {
+    font-size: 1.8rem;
+    color: #e50914;
+    margin-bottom: 15px;
+}
+
+.plan-price {
+    font-size: 1.6rem;
+    color: #ff5733;
+    margin-bottom: 20px;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.plan-features li {
+    margin: 10px 0;
+}
+
+/* فرم تماس */
+.contact-form textarea {
+    background-color: #f4f4f4;
+    border: 2px solid #e50914;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-family: inherit;
+}
+
+/* استایل ویژه */
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.rating i, .stars i {
+    color: gold;
+    margin: 0 4px;
+}
+
+.stars i.far {
+    color: #ccc;
+}
+
+/* نظرات کاربران */
+.carousel-item {
+    background-color: #333;
+    text-align: center;
+    color: white;
+    transition: opacity 1s ease-in-out;
+}
+
+.user-comment {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.user-comment:hover {
+    transform: translateY(-5px);
+}
+
+.user-img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+/* نوار بالا */
+.ultra-navbar {
+    background-color: #151515;
+    border-bottom: 1px solid #00ff80;
+    padding: 12px 0;
+    box-shadow: 0 0 15px rgba(0, 255, 128, 0.15);
+}
+
+.neon-logo {
+    font-size: 1.8rem;
+    color: #00ff80;
+    text-shadow: 0 0 8px #00ff80;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+    color: #ddd !important;
+    padding: 8px 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #00ff80 !important;
+    text-shadow: 0 0 5px #00ff80;
+}
+
+/* منوی بازشونده */
+.fancy-dropdown {
+    background-color: #222;
+    border: none;
+}
+
+.fancy-dropdown .dropdown-item {
+    color: #ddd;
+    transition: all 0.3s ease;
+}
+
+.fancy-dropdown .dropdown-item:hover {
+    background-color: #00ff80;
+    color: #111;
+}
+
+/* جستجو */
+.searchbox {
+    position: relative;
+}
+
+.searchbox input {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 8px 35px 8px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* دکمه‌های شیشه‌ای و نئونی */
+.btn-glass {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid #444;
+    color: #ccc;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.btn-neon {
+    background-color: #00ff80;
+    color: #111;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 0 8px #00ff80;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    background-color: #00cc66;
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>سبد خرید</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- فونت Vazir -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
+
+    <!-- Bootstrap 5 RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+
+    <!-- آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/cart.css">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg ultra-navbar">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a class="navbar-brandtext-green" href="#">24 HOURS</a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <i class="fas fa-bars text-light fs-4"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">خانه</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="about.html">درباره ما</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="pro.html">محصولات</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="tamas.html">تماس با ما</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="h-100 h-custom d-flex align-items-center justify-content-center">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card card-registration">
+                    <div class="row g-0">
+
+                        <!-- سبد خرید -->
+                        <div class="col-lg-8 p-4">
+                            <h3 class="fw-bold text-center mb-4">سبد خرید</h3>
+
+                            <!-- ردیف محصول -->
+                            <div class="row align-items-center product-row text-end">
+                                <div class="col-12 col-md-3 text-end">
+                                    <img src="img/k6.webp" class="img-fluid rounded-3 product-img" alt="محصول">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <h6 class="text-muted">کتونی</h6>
+                                    <h6>کتونی پیاده روی</h6>
+                                </div>
+                                <div class="col-12 col-md-3 d-flex align-items-center justify-content-end">
+                                    <button class="btn btn-link px-2 text-success" onclick="this.nextElementSibling.stepUp()">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <input type="number" value="1" min="1" class="form-control form-control-sm text-center mx-1" style="width: 50px;" />
+                                    <button class="btn btn-link px-2 text-danger" onclick="this.previousElementSibling.stepDown()">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <div class="col-12 col-md-2">
+                                    <h6>۴۴۰٬۰۰۰ تومان</h6>
+                                </div>
+                            </div>
+                            <div class="row align-items-center product-row text-end">
+                                <div class="col-12 col-md-3 text-end">
+                                    <img src="img/whey3.webp" class="img-fluid rounded-3 product-img" alt="محصول">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <h6 class="text-muted">مکمل</h6>
+                                    <h6>پودر پروتئین</h6>
+                                </div>
+                                <div class="col-12 col-md-3 d-flex align-items-center justify-content-end">
+                                    <button class="btn btn-link px-2 text-success" onclick="this.nextElementSibling.stepUp()">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <input type="number" value="1" min="1" class="form-control form-control-sm text-center mx-1" style="width: 50px;" />
+                                    <button class="btn btn-link px-2 text-danger" onclick="this.previousElementSibling.stepDown()">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <div class="col-12 col-md-2">
+                                    <h6>۴۴۰٬۰۰۰ تومان</h6>
+                                </div>
+                            </div>
+                            <div class="row align-items-center product-row text-end">
+                                <div class="col-12 col-md-3 text-end">
+                                    <img src="img/c10.webp" class="img-fluid rounded-3 product-img" alt="محصول">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <h6 class="text-muted">ست ورزشی</h6>
+                                    <h6>تیشرت و شلوارک</h6>
+                                </div>
+                                <div class="col-12 col-md-3 d-flex align-items-center justify-content-end">
+                                    <button class="btn btn-link px-2 text-success" onclick="this.nextElementSibling.stepUp()">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <input type="number" value="1" min="1" class="form-control form-control-sm text-center mx-1" style="width: 50px;" />
+                                    <button class="btn btn-link px-2 text-danger" onclick="this.previousElementSibling.stepDown()">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <div class="col-12 col-md-2">
+                                    <h6>۴۴۰٬۰۰۰ تومان</h6>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="text-center mt-4">
+                                <a href="pro.html" class="text-decoration-none">
+                                    <i class="fas fa-arrow-left me-2"></i>بازگشت به فروشگاه
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- خلاصه -->
+                        <div class="col-lg-4 summary-box p-4">
+                            <h4 class="fw-bold mb-4 text-center">خلاصه سفارش</h4>
+
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>جمع (۳ کالا)</span>
+                                <span>۱٬۳۲۰٬۰۰۰ تومان</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">روش ارسال</label>
+                                <select class="form-select">
+                                    <option selected>پست معمولی - ۵۰٬۰۰۰ تومان</option>
+                                    <option>پیک فوری</option>
+                                    <option>تحویل حضوری</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">کد تخفیف</label>
+                                <input type="text" class="form-control" placeholder="کد را وارد کنید">
+                            </div>
+
+                            <hr />
+
+                            <div class="d-flex justify-content-between mb-4">
+                                <strong>جمع کل</strong>
+                                <strong>۱٬۳۷۰٬۰۰۰ تومان</strong>
+                            </div>
+
+                            <a href="factor.html"><button class="btn btn-main btn-lg w-100">ثبت سفارش</button></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- بخش بازدید اخیر -->
+<section class="recent-view-section">
+    <h3 class="recent-view-title text-black">بازدید اخیر</h3>
+    <div class="recent-view-products">
+        <div class="recent-product">
+            <img src="img/k7.webp" alt="محصول 1">
+            <h6 class="text-black">کتونی جدید</h6>
+            <p class="price">۳۵۰٬۰۰۰ تومان</p>
+        </div>
+        <div class="recent-product">
+            <img src="img/c6.webp" alt="محصول 2">
+            <h6 class="text-black">لباس ورزشی</h6>
+            <p class="price">۸۰٬۰۰۰ تومان</p>
+        </div>
+        <div class="recent-product">
+            <img src="img/whey.jpg" alt="محصول 3">
+            <h6 class="text-black">مکمل بدنسازی</h6>
+            <p class="price">۱۵۰٬۰۰۰ تومان</p>
+        </div>
+    </div>
+</section>
+
+
+<footer class="bg-dark text-light pt-5 border-top border-danger">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md-3">
+                <h3 class="text-neon-green fw-bold">24 HOURS</h3>
+                <p>تمرین کن، هر ساعت از شبانه‌روز! مجهزترین باشگاه با خدمات حرفه‌ای.</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-danger mb-3"><i class="bi bi-link-45deg ms-2"></i>لینک‌ها</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>خانه</a></li>
+                    <li><a href="pro.html" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>محصولات</a></li>
+                    <li><a href="bmi_calculator.html" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>BMI</a></li>
+                    <li><a href="tamas.html" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>تماس با ما</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-danger mb-3"><i class="bi bi-telephone ms-2"></i>ارتباط با ما</h5>
+                <p><i class="bi bi-geo-alt ms-2"></i> تهران، خیابان مثال، باشگاه ۲۴</p>
+                <p><a href="tel:+982112345678" class="text-light"><i class="bi bi-telephone ms-2"></i> ۰۲۱-۱۲۳۴۵۶۷۸</a></p>
+                <p><i class="bi bi-envelope ms-2"></i> info@24hoursgym.ir</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-danger mb-3"><i class="bi bi-share ms-2"></i>دنبال کنید</h5>
+                <div class="d-flex gap-3 fs-4">
+                    <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-telegram"></i></a>
+                    <a href="https://wa.me/989123456789" class="text-light" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center border-top border-secondary mt-4 pt-3 text-secondary small">
+            © 2025 باشگاه 24 ساعته | طراحی با ❤️ توسط تیم 24H
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

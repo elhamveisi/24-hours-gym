@@ -1,0 +1,175 @@
+/* فونت فارسی Vazir */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
+/* استایل عمومی */
+body {
+    font-family: 'Vazir', sans-serif;
+    background-color: #f8f9fa;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    direction: rtl;
+}
+
+a {
+    color: #ff6161;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blanchedalmond;
+    text-decoration: underline;
+}
+
+/* هدر */
+header {
+    background: url('img/9.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* فرم تماس */
+.contact-container {
+    background-color: #121212;
+    color: #eee;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.contact-container h1 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #00ff00;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+    color: #ccc;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    color: #eee;
+    font-size: 14px;
+    padding: 6px 0;
+}
+
+.input-wrapper input:focus,
+.input-wrapper textarea:focus {
+    outline: none;
+}
+
+button {
+    width: 100%;
+    background-color: #00ff00;
+    color: #000;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+/* هدر و فوتر */
+#header-container,
+#footer-container {
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#footer-container {
+    margin-top: auto;
+    padding: 10px;
+}
+
+#header-container h1, #footer-container h1 {
+    margin: 0;
+}
+
+/* استایل منو */
+.ultra-navbar {
+    background-color: #151515;
+    border-bottom: 1px solid #00ff80;
+    padding: 12px 0;
+    box-shadow: 0 0 15px rgba(0, 255, 128, 0.15);
+}
+
+/* دکمه‌ها */
+button, .btn, .plan-button, .contact-form button {
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover, .btn:hover, .plan-button:hover, .contact-form button:hover {
+    background-color: #d04a28;
+}
+
+/* جستجو */
+.searchbox {
+    position: relative;
+}
+
+.searchbox input {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 8px 35px 8px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 14px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}

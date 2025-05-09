@@ -41,4 +41,5 @@ function generateMealPlan() {
     });
 
     mealPlan.classList.remove("d-none");
+
 }
