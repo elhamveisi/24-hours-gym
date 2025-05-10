@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>فرم باشگاه</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" />
+  <link rel="stylesheet" href="css/fitprogram.css" />
+</head>
+<body class="bg-light" style="font-family: 'Vazir', sans-serif; direction: rtl;">
+
+  <div class="container py-5">
+    <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 650px; background-color: #424242;">
+      <div class="card-body text-white">
+        <h1 class="text-center mb-4">فرم عضویت در باشگاه</h1>
+
+        <form>
+
+          <div class="mb-3">
+            <label class="form-label">🎯 هدف تمرینی</label>
+            <select class="form-select bg-dark text-white border-0" required>
+              <option value="">انتخاب هدف</option>
+              <option value="fat-burn">چربی‌سوزی</option>
+              <option value="muscle">عضله‌سازی</option>
+              <option value="endurance">افزایش استقامت</option>
+            </select>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label">سن</label>
+              <input type="number" class="form-control bg-dark text-white border-0" placeholder="مثلاً ۲۵" required />
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">قد (سانتی‌متر)</label>
+              <input type="number" class="form-control bg-dark text-white border-0" placeholder="مثلاً ۱۸۰" required />
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">وزن (کیلوگرم)</label>
+              <input type="number" class="form-control bg-dark text-white border-0" placeholder="مثلاً ۷۵" required />
+            </div>
+          </div>
+
+          <div class="mt-4 mb-3">
+            <label class="form-label">کد اشتراک</label>
+            <input type="text" class="form-control bg-dark text-white border-0" placeholder="کد اشتراک را وارد کنید" />
+          </div>
+
+          <h5 class="text-center my-4">👤 انتخاب جنسیت</h5>
+          <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <a href="varzshaghaian.html" class="btn btn-outline-light text-center gender-btn rounded-circle p-4 shadow" style="width: 130px; height: 130px;">
+              <i class="fas fa-person fa-2x mb-2 d-block"></i>
+              مرد
+            </a>
+            <a href="varzashbanovan.html" class="btn btn-outline-light text-center gender-btn rounded-circle p-4 shadow" style="width: 130px; height: 130px;">
+              <i class="fas fa-person-dress fa-2x mb-2 d-block"></i>
+              زن
+            </a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

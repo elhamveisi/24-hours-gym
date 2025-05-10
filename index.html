@@ -208,15 +208,51 @@
         </div>
     </div>
 </section>
-<!-- در پایین صفحه قبل از پایان تگ body، این خط را اضافه کنید -->
-<div id="footer-container"></div>
+<footer class="bg-dark text-light pt-5 border-top border-danger" dir="rtl">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md-3">
+                <h3 class="text-neon-green fw-bold">24 HOURS</h3>
+                <p>تمرین کن، هر ساعت از شبانه‌روز! مجهزترین باشگاه با خدمات حرفه‌ای.</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-danger mb-3"><i class="fas fa-link ms-2"></i>لینک‌ها</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none"><i class="fas fa-angle-left ms-2"></i>خانه</a></li>
+                    <li><a href="pro.html" class="text-light text-decoration-none"><i class="fas fa-angle-left ms-2"></i>محصولات</a></li>
+                    <li><a href="bmi_calculator.html" class="text-light text-decoration-none"><i class="fas fa-angle-left ms-2"></i>BMI</a></li>
+                    <li><a href="tamas.html" class="text-light text-decoration-none"><i class="fas fa-angle-left ms-2"></i>تماس با ما</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-danger mb-3"><i class="fas fa-phone ms-2"></i>ارتباط با ما</h5>
+                <p><i class="fas fa-map-marker-alt ms-2"></i> تهران، خیابان مثال، باشگاه ۲۴</p>
+                <p><a href="tel:+982112345678" class="text-light"><i class="fas fa-phone ms-2"></i> ۰۲۱-۱۲۳۴۵۶۷۸</a></p>
+                <p><i class="fas fa-envelope ms-2"></i> info@24hoursgym.ir</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-danger mb-3"><i class="fas fa-share-alt ms-2"></i>دنبال کنید</h5>
+                <div class="d-flex gap-3 fs-4">
+                    <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/989123456789" class="text-light" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center border-top border-secondary mt-4 pt-3 text-secondary small">
+            © 2025 باشگاه 24 ساعته | طراحی با ❤️ توسط تیم 24H
+        </div>
+    </div>
+</footer>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    // تابع برای اجرای اسکریپت‌ها بعد از لود کل صفحه و هدر
-    function initScripts() {
-        // ⏰ ساعت زنده
+        // ساعت زنده
+        function initScripts() {
         function updateClock() {
             const now = new Date();
             const time = now.toLocaleTimeString('fa-IR', { hour12: false });
@@ -229,46 +265,12 @@
         updateClock();
     }
 
-
+        // اجرا پس از لود کامل DOM
+        window.addEventListener('DOMContentLoaded', () => {
+        initScripts();
+    });
 </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    // راه‌اندازی Swiper برای نظرات
-    const swiper = new Swiper('.swiper-container', {
-        loop: true, // چرخش بی‌پایان اسلایدها
-        slidesPerView: 1, // نمایش یک نظر در هر اسلاید
-        spaceBetween: 20, // فاصله بین اسلایدها
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        autoplay: {
-            delay: 5000, // اسلایدها هر 5 ثانیه تغییر کنند
-        },
-    });
-    window.addEventListener('DOMContentLoaded', () => {
-        // لود هدر
-        fetch('header.html')
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById('header-container').innerHTML = data;
-                initScripts();
-            })
-            .catch(err => {
-                console.error('خطا در لود هدر:', err);
-                initScripts();
-            });
 
-        // لود فوتر
-        fetch('footer.html')
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-            })
-            .catch(err => {
-                console.error('خطا در لود فوتر:', err);
-            });
-    });
 </script>
 </body>
 </html>
