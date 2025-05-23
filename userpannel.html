@@ -7,36 +7,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="css/userpanel.css" rel="stylesheet">
+    <link href="css/userpanel.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container-fluid">
     <div class="row">
-
         <!-- Sidebar -->
         <nav class="col-md-2 d-none d-md-block sidebar">
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <i class="fas fa-tachometer-alt"></i> داشبورد
-                        </a>
+                        <a class="nav-link active" href="#"><i class="fas fa-tachometer-alt"></i> داشبورد</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#orders-section">
-                            <i class="fas fa-box-open"></i> سفارش‌ها
-                        </a>
+                        <a class="nav-link" href="#orders-section"><i class="fas fa-box-open"></i> سفارش‌ها</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#settings-section">
-                            <i class="fas fa-cogs"></i> تنظیمات
-                        </a>
+                        <a class="nav-link" href="#settings-section"><i class="fas fa-cogs"></i> تنظیمات</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="#">
-                            <i class="fas fa-sign-out-alt"></i> خروج
-                        </a>
+                        <a class="nav-link text-danger" href="#"><i class="fas fa-sign-out-alt"></i> خروج</a>
                     </li>
                 </ul>
             </div>
@@ -50,7 +41,7 @@
                     <span class="navbar-brand mb-0 h1">پنل کاربری</span>
                     <div class="d-flex align-items-center">
                         <img src="img/user1.jpg" alt="Profile" class="profile-img me-2">
-                        <span>سلام، علی رضایی</span>
+                        <span>سلام</span>
                     </div>
                 </div>
             </nav>
@@ -64,9 +55,7 @@
                             <p class="card-text mb-1">نام: علی رضایی</p>
                             <p class="card-text mb-0">ایمیل: ali@example.com</p>
                         </div>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-                            ویرایش پروفایل
-                        </button>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editProfileModal">ویرایش پروفایل</button>
                     </div>
                 </div>
 
@@ -76,9 +65,7 @@
                         <h5 class="card-title">سفارش‌های اخیر</h5>
                         <table class="table">
                             <thead>
-                            <tr>
-                                <th>کد سفارش</th><th>تاریخ</th><th>مبلغ</th><th>وضعیت</th><th></th>
-                            </tr>
+                            <tr><th>کد سفارش</th><th>تاریخ</th><th>مبلغ</th><th>وضعیت</th><th></th></tr>
                             </thead>
                             <tbody>
                             <tr>
@@ -107,6 +94,7 @@
                             </tr>
                             </tbody>
                         </table>
+                        <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#orderHistoryModal">مشاهده تاریخچه کامل</button>
                     </div>
                 </div>
 
@@ -126,7 +114,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </main>
     </div>
@@ -185,6 +172,66 @@
     </div>
 </div>
 
+<!-- Order History Modal -->
+<div class="modal fade" id="orderHistoryModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">تاریخچه سفارش‌ها</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead><tr><th>کد</th><th>تاریخ</th><th>مبلغ</th><th>وضعیت</th></tr></thead>
+                    <tbody>
+                    <tr><td>#12341</td><td>1404/01/10</td><td>۵۰۰٬۰۰۰ تومان</td><td><span class="badge bg-success">تحویل شده</span></td></tr>
+                    <tr><td>#12342</td><td>1404/01/20</td><td>۲۳۰٬۰۰۰ تومان</td><td><span class="badge bg-danger">لغو شده</span></td></tr>
+                    <tr><td>#12343</td><td>1404/01/25</td><td>۱٬۰۰۰٬۰۰۰ تومان</td><td><span class="badge bg-warning text-dark">در حال بررسی</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">عملیات با موفقیت انجام شد.</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const orderDetailModal = document.getElementById('orderDetailModal');
+    orderDetailModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        document.getElementById('mdlOrderId').textContent = button.getAttribute('data-order');
+        document.getElementById('mdlOrderDate').textContent = button.getAttribute('data-date');
+        document.getElementById('mdlOrderAmount').textContent = button.getAttribute('data-amount');
+        document.getElementById('mdlOrderStatus').textContent = button.getAttribute('data-status');
+    });
+
+    document.querySelector('#editProfileModal form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = this.querySelector('input[type="text"]').value;
+        const email = this.querySelector('input[type="email"]').value;
+        document.querySelector('.card-text.mb-1').textContent = `نام: ${name}`;
+        document.querySelector('.card-text.mb-0').textContent = `ایمیل: ${email}`;
+        const modal = bootstrap.Modal.getInstance(document.getElementById('editProfileModal'));
+        modal.hide();
+        const toast = new bootstrap.Toast(document.getElementById('liveToast'));
+        toast.show();
+    });
+
+    document.querySelector('#settings-section form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const toast = new bootstrap.Toast(document.getElementById('liveToast'));
+        toast.show();
+    });
+</script>
 </body>
 </html>

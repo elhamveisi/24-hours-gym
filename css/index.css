@@ -255,3 +255,25 @@ button:hover, .btn:hover, .plan-button:hover, .contact-form button:hover {
 .btn-neon:hover {
     background-color: #00cc66;
 }
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+   right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.scroll-to-top:hover {
+    background-color: #bb2d3b;
+    transform: scale(1.1);
+}
