@@ -3,237 +3,205 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>پنل کاربری</title>
+    <title>تماس با ما</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" />
     <style>
+        <style>
         body {
             font-family: 'Vazir', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #121212;
+            color: #f5f5f5;
         }
-        .sidebar {
-            min-height: 100vh;
-            background-color: #fff;
-            border-left: 1px solid #dee2e6;
+
+        .ultra-navbar {
+            background-color: #212121;
         }
-        .sidebar .nav-link {
-            color: #333;
+
+        .navbar-brandtext-green {
+            color: #4caf50;
+            font-weight: 700;
+            font-size: 1.8rem;
         }
-        .sidebar .nav-link.active {
-            background-color: #dc3545;
+
+        .navbar-brandtext-green:hover {
+            color: #81c784;
+        }
+
+        .nav-link.text-white:hover,
+        .nav-link.active {
+            color: #81c784 !important;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 50px auto 80px;
+            background: linear-gradient(135deg, #2a2a2a, #1c1c1c);
+            padding: 30px 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(72, 187, 120, 0.5);
+        }
+
+        .contact-container h1 {
+            color: #4caf50;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        label {
+            color: #a5d6a7;
+            font-weight: 600;
+        }
+
+        .form-control {
+            background-color: #2f2f2f;
+            border: 1px solid #4caf50;
+            color: #f5f5f5;
+        }
+
+        .form-control::placeholder {
+            color: #c8e6c9;
+            opacity: 0.8;
+        }
+
+        .form-control:focus {
+            background-color: #3a3a3a;
+            border-color: #81c784;
+            color: #fff;
+            box-shadow: 0 0 8px #81c784;
+        }
+
+        .input-group-text {
+            background-color: #4caf50;
+            color: #121212;
+            border: none;
+        }
+
+        .btn-send {
+            background: linear-gradient(to right, #43e97b, #38f9d7);
+            border: none;
+            width: 100%;
+            padding: 12px 0;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            color: #111;
+        }
+
+        .btn-send:hover {
+            background: linear-gradient(to right, #2ccc87, #2bc4aa);
             color: #fff;
         }
-        .navbar {
-            background-color: #fff;
-            border-bottom: 1px solid #dee2e6;
-        }
-        .content {
-            padding: 20px;
-        }
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
-        .btn-danger {
-            background-color: #dc3545;
-            border: none;
-        }
-        .btn-danger:hover {
-            background-color: #c82333;
-        }
-        .navbar .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .profile-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .sidebar .nav-link i {
-            margin-left: 10px;
+
+        footer {
+            background-color: #151515;
+
         }
     </style>
+
+
 </head>
 <body>
 
-<div class="container-fluid">
-    <div class="row">
-
-        <!-- Sidebar -->
-        <nav class="col-md-2 d-none d-md-block sidebar">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <i class="fas fa-tachometer-alt"></i> داشبورد
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#orders-section">
-                            <i class="fas fa-box-open"></i> سفارش‌ها
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#settings-section">
-                            <i class="fas fa-cogs"></i> تنظیمات
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-danger" href="#">
-                            <i class="fas fa-sign-out-alt"></i> خروج
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="col-md-10 ms-sm-auto px-md-4">
-            <!-- Navbar -->
-            <nav class="navbar navbar-light">
-                <div class="container-fluid">
-                    <span class="navbar-brand mb-0 h1">پنل کاربری</span>
-                    <div class="d-flex align-items-center">
-                        <img src="img/user1.jpg" alt="Profile" class="profile-img me-2">
-                        <span>سلام، علی رضایی</span>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="content">
-                <!-- Profile Card -->
-                <div class="card mb-4">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div>
-                            <h5 class="card-title">اطلاعات پروفایل</h5>
-                            <p class="card-text mb-1">نام: علی رضایی</p>
-                            <p class="card-text mb-0">ایمیل: ali@example.com</p>
-                        </div>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-                            ویرایش پروفایل
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Orders Section -->
-                <div id="orders-section" class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">سفارش‌های اخیر</h5>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>کد سفارش</th><th>تاریخ</th><th>مبلغ</th><th>وضعیت</th><th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>#12345</td>
-                                <td>1404/02/01</td>
-                                <td>۱٬۳۲۰٬۰۰۰ تومان</td>
-                                <td><span class="badge bg-success">تحویل شده</span></td>
-                                <td>
-                                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#orderDetailModal"
-                                            data-order="#12345" data-date="1404/02/01" data-amount="۱٬۳۲۰٬۰۰۰" data-status="تحویل شده">
-                                        جزئیات
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#12346</td>
-                                <td>1404/02/05</td>
-                                <td>۸۵۰٬۰۰۰ تومان</td>
-                                <td><span class="badge bg-warning text-dark">در حال پردازش</span></td>
-                                <td>
-                                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#orderDetailModal"
-                                            data-order="#12346" data-date="1404/02/05" data-amount="۸۵۰٬۰۰۰" data-status="در حال پردازش">
-                                        جزئیات
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Settings Section -->
-                <div id="settings-section" class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">تنظیمات حساب</h5>
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label">تغییر رمز عبور</label>
-                                <input type="password" class="form-control" placeholder="رمز فعلی">
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control" placeholder="رمز جدید">
-                            </div>
-                            <button type="submit" class="btn btn-danger">ذخیره تغییرات</button>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </main>
-    </div>
-</div>
-
-<!-- Edit Profile Modal -->
-<div class="modal fade" id="editProfileModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">ویرایش پروفایل</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label class="form-label">نام کامل</label>
-                        <input type="text" class="form-control" value="علی رضایی">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">ایمیل</label>
-                        <input type="email" class="form-control" value="ali@example.com">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">شماره موبایل</label>
-                        <input type="text" class="form-control" value="09120000000">
-                    </div>
-                    <button type="submit" class="btn btn-danger">ذخیره</button>
-                </form>
-            </div>
+<!-- هدر -->
+<nav class="navbar navbar-expand-lg ultra-navbar">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a class="navbar-brandtext-green" href="#">24 HOURS</a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <i class="fas fa-bars text-light fs-4"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">خانه</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="about.html">درباره ما</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="pro.html">محصولات</a></li>
+                <li class="nav-item"><a class="nav-link text-white active" href="tamas.html">تماس با ما</a></li>
+            </ul>
         </div>
     </div>
-</div>
+</nav>
 
-<!-- Order Detail Modal -->
-<div class="modal fade" id="orderDetailModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">جزئیات سفارش</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p><strong>کد سفارش:</strong> <span id="mdlOrderId"></span></p>
-                <p><strong>تاریخ:</strong> <span id="mdlOrderDate"></span></p>
-                <p><strong>مبلغ:</strong> <span id="mdlOrderAmount"></span> تومان</p>
-                <p><strong>وضعیت:</strong> <span id="mdlOrderStatus"></span></p>
-                <hr>
-                <h6>محصولات:</h6>
-                <ul id="mdlOrderProducts" class="list-group">
-                    <li class="list-group-item">پروتئین وی ×2 – ۱,۰۰۰,۰۰۰ تومان</li>
-                    <li class="list-group-item">کراتین ×1 – ۳۰۰,۰۰۰ تومان</li>
-                </ul>
+<!-- فرم تماس -->
+<div class="contact-container shadow-lg">
+    <h1>تماس با ما</h1>
+    <form>
+        <div class="mb-3">
+            <label for="fname" class="form-label">نام</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                <input type="text" id="fname" name="fname" class="form-control" placeholder="نام خود را وارد کنید" required />
             </div>
         </div>
-    </div>
+        <div class="mb-3">
+            <label for="lname" class="form-label">نام خانوادگی</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                <input type="text" id="lname" name="lname" class="form-control" placeholder="نام خانوادگی خود را وارد کنید" required />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">ایمیل</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                <input type="email" id="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید" required />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">پیام</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-chat-left-dots-fill"></i></span>
+                <textarea id="message" name="message" rows="4" class="form-control" placeholder="پیام خود را وارد کنید" required></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-send">ارسال پیام</button>
+    </form>
 </div>
 
+<!-- فوتر -->
+<footer class="bg-dark text-light pt-5 border-top border-danger">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md-3">
+                <h3 class="text-neon-green fw-bold">24 HOURS</h3>
+                <p>تمرین کن، هر ساعت از شبانه‌روز! مجهزترین باشگاه با خدمات حرفه‌ای.</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-danger mb-3"><i class="bi bi-link-45deg ms-2"></i>لینک‌ها</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>خانه</a></li>
+                    <li><a href="pro.html" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>محصولات</a></li>
+                    <li><a href="bmi_calculator.html" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>BMI</a></li>
+                    <li><a href="tamas.html" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>تماس با ما</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-danger mb-3"><i class="bi bi-telephone ms-2"></i>ارتباط با ما</h5>
+                <p><i class="bi bi-geo-alt ms-2"></i> تهران، خیابان مثال، باشگاه ۲۴</p>
+                <p><a href="tel:+982112345678" class="text-light"><i class="bi bi-telephone ms-2"></i> ۰۲۱-۱۲۳۴۵۶۷۸</a></p>
+                <p><i class="bi bi-envelope ms-2"></i> info@24hoursgym.ir</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-danger mb-3"><i class="bi bi-share ms-2"></i>دنبال کنید</h5>
+                <div class="d-flex gap-3 fs-4">
+                    <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-telegram"></i></a>
+                    <a href="https://wa.me/989123456789" class="text-light" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center border-top border-secondary mt-4 pt-3 text-secondary small">
+            © 2025 باشگاه 24 ساعته | طراحی با ❤️ توسط تیم 24H
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -1,20 +1,22 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>باشگاه 24 ساعته</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>باشگاه 24 ساعته</title>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+        <!-- فونت و آیکون‌ها -->
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-</head>
+        <!-- CSS افزونه‌ها -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+        <!-- استایل سفارشی -->
+        <link href="css/index.css" rel="stylesheet">
+    </head>
+
 <body class="bg-light text-dark">
 
 
@@ -36,14 +38,17 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">خدمات</a>
                     <ul class="dropdown-menu fancy-dropdown">
                         <li><a class="dropdown-item" href="barnameh%20(1).html">برنامه غذایی</a></li>
-                        <li><a class="dropdown-item" href="#">برنامه تمرینی</a></li>
+                        <li><a class="dropdown-item" href="fitprogram.html">برنامه تمرینی</a></li>
                         <li><a class="dropdown-item" href="bmi_calculator.html">شاخص توده بدنی</a></li>
 
                     </ul>
                 </li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">بلاگ</a></li>
                 <li class="nav-item"><a class="nav-link" href="pro.html">محصولات</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+                <li class="nav-item"><a class="nav-link" href="FAQ.html">سوالات متداول</a></li>
                 <li class="nav-item"><a class="nav-link" href="tamas.html">تماس با ما</a></li>
+
             </ul>
 
             <!-- جستجو + دکمه‌ها -->
@@ -69,6 +74,7 @@
             </div>
 
         </div>
+    </div>
 </nav>
 
 
@@ -76,7 +82,7 @@
 <header class="text-center py-5" style="background: url('img/9.jpg') no-repeat center center/cover;">
     <h1 id="clock" class="display-3 ">00:00:00</h1>
     <p class="fs-4 text-white">مهم نیست ساعت چند باشه، ما همیشه بازیم.</p>
-    <a href="#" class="btn btn-outline-success mt-3">شروع کن</a>
+    <a href="fitprogram.html" class="btn btn-outline-success mt-3">شروع کن</a>
 </header>
 
 
@@ -128,7 +134,7 @@
                         <li>بدون پشتیبانی</li>
                     </ul>
                 </div>
-                <button class="plan-button">ثبت‌نام</button>
+                <button class="plan-button" onclick="location.href='checkouteshterak.html'">ثبت‌نام</button>
             </div>
         </div>
 
@@ -144,7 +150,7 @@
                         <li>پشتیبانی عمومی</li>
                     </ul>
                 </div>
-                <button class="plan-button">ثبت‌نام</button>
+                <button class="plan-button" onclick="location.href='checkouteshterak.html'">ثبت‌نام</button>
             </div>
         </div>
 
@@ -160,7 +166,8 @@
                         <li>پشتیبانی ۲۴ ساعته</li>
                     </ul>
                 </div>
-                <button class="plan-button">شروع حرفه‌ای</button>
+                <button class="plan-button" onclick="location.href='checkouteshterak.html'">شروع حرفه‌ای</button>
+
             </div>
         </div>
     </div>
@@ -205,9 +212,16 @@
                     <p class="comment-text text-secondary">باشگاه خوبیه من که خیلی پیشرفت کردم و تونستم به هیکل مورد علاقه ام برسم!</p>
                 </div>
             </div>
+            <!-- اسلایدهای بیشتر... -->
+
         </div>
+
+        <!-- دکمه‌های ناوبری -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
 </section>
+<!-- در پایین صفحه قبل از پایان تگ body، این خط را اضافه کنید -->
 <footer class="bg-dark text-light pt-5 border-top border-danger" dir="rtl">
     <div class="container">
         <div class="row gy-4">
@@ -246,31 +260,36 @@
     </div>
 </footer>
 
-
+<!-- جاوااسکریپت‌ها در انتهای صفحه برای بهبود سرعت لود -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-        // ساعت زنده
-        function initScripts() {
-        function updateClock() {
-            const now = new Date();
-            const time = now.toLocaleTimeString('fa-IR', { hour12: false });
-            const clock = document.getElementById('clock');
-            if (clock) {
-                clock.textContent = time;
-            }
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
+    // به‌روزرسانی ساعت دیجیتال
+    function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('fa-IR', { hour12: false });
+        document.getElementById('clock').textContent = time;
     }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
 
-        // اجرا پس از لود کامل DOM
-        window.addEventListener('DOMContentLoaded', () => {
-        initScripts();
+<script>
+    // راه‌اندازی Swiper برای نظرات
+    const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 5000,
+        },
     });
 </script>
 
-</script>
 </body>
 </html>

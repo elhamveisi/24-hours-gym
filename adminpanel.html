@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>پنل مدیریت</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link  href="css/adminpanel.css" rel="stylesheet">
+    <style>
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block sidebar p-0">
+            <div class="position-sticky">
+                <h5 class="text-center">مدیریت</h5>
+                <a class="nav-link active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> داشبورد</a>
+                <a class="nav-link" data-tab="users"><i class="fas fa-users"></i> کاربران</a>
+                <a class="nav-link" data-tab="products"><i class="fas fa-box"></i> محصولات</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-10 ms-sm-auto px-4">
+
+            <!-- داشبورد -->
+            <section id="dashboard" class="tab-content active-tab">
+                <h2>داشبورد فروش</h2>
+                <canvas id="salesChart"></canvas>
+            </section>
+
+            <!-- کاربران -->
+            <section id="users" class="tab-content" style="display:none;">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>کاربران</h2>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal">
+                        <i class="fas fa-plus"></i> افزودن کاربر جدید
+                    </button>
+                </div>
+
+                <input type="text" id="searchInputUsers" class="form-control mb-3" placeholder="جستجو در کاربران..." />
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle text-center" id="userTable">
+                        <thead class="table-danger">
+                        <tr>
+                            <th>شناسه</th>
+                            <th>نام</th>
+                            <th>ایمیل</th>
+                            <th>نقش</th>
+                            <th>وضعیت</th>
+                            <th>عملیات</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>علی محمدی</td>
+                            <td>ali@example.com</td>
+                            <td>مدیر</td>
+                            <td><span class="badge bg-success">فعال</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-warning edit-btn"><i class="fas fa-edit"></i> ویرایش</button>
+                                <button class="btn btn-sm btn-outline-danger delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>زهرا رضایی</td>
+                            <td>zahra@example.com</td>
+                            <td>کاربر</td>
+                            <td><span class="badge bg-secondary">غیرفعال</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-warning edit-btn"><i class="fas fa-edit"></i> ویرایش</button>
+                                <button class="btn btn-sm btn-outline-danger delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- User Modal -->
+                <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form class="modal-content" id="userForm">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="userModalLabel">افزودن کاربر جدید</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="بستن"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" id="userId" />
+                                <div class="mb-3">
+                                    <label for="userName" class="form-label">نام</label>
+                                    <input type="text" class="form-control" id="userName" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userEmail" class="form-label">ایمیل</label>
+                                    <input type="email" class="form-control" id="userEmail" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userRole" class="form-label">نقش</label>
+                                    <select id="userRole" class="form-select" required>
+                                        <option value="">انتخاب کنید</option>
+                                        <option value="مدیر">مدیر</option>
+                                        <option value="کاربر">کاربر</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userStatus" class="form-label">وضعیت</label>
+                                    <select id="userStatus" class="form-select" required>
+                                        <option value="فعال">فعال</option>
+                                        <option value="غیرفعال">غیرفعال</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">لغو</button>
+                                <button type="submit" class="btn btn-primary">ذخیره</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- محصولات -->
+            <section id="products" class="tab-content" style="display:none;">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>محصولات</h2>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">
+                        <i class="fas fa-plus"></i> افزودن محصول جدید
+                    </button>
+                </div>
+
+                <input type="text" id="searchInputProducts" class="form-control mb-3" placeholder="جستجو در محصولات..." />
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle text-center" id="productTable">
+                        <thead class="table-danger">
+                        <tr>
+                            <th>شناسه</th>
+                            <th>نام محصول</th>
+                            <th>دسته‌بندی</th>
+                            <th>قیمت (تومان)</th>
+                            <th>موجودی</th>
+                            <th>عملیات</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>مکمل وی</td>
+                            <td>مکمل</td>
+                            <td>۱,۰۰۰,۰۰۰</td>
+                            <td>۵۰</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-warning edit-btn"><i class="fas fa-edit"></i> ویرایش</button>
+                                <button class="btn btn-sm btn-outline-danger delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>لباس ورزشی</td>
+                            <td>لباس</td>
+                            <td>۱۵۰,۰۰۰</td>
+                            <td>۱۲۰</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-warning edit-btn"><i class="fas fa-edit"></i> ویرایش</button>
+                                <button class="btn btn-sm btn-outline-danger delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Product Modal -->
+                <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form class="modal-content" id="productForm">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="productModalLabel">افزودن محصول جدید</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="بستن"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" id="productId" />
+                                <div class="mb-3">
+                                    <label for="productName" class="form-label">نام محصول</label>
+                                    <input type="text" class="form-control" id="productName" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productCategory" class="form-label">دسته‌بندی</label>
+                                    <input type="text" class="form-control" id="productCategory" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productPrice" class="form-label">قیمت (تومان)</label>
+                                    <input type="number" class="form-control" id="productPrice" required min="0" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="productStock" class="form-label">موجودی</label>
+                                    <input type="number" class="form-control" id="productStock" required min="0" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">لغو</button>
+                                <button type="submit" class="btn btn-primary">ذخیره</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Toast Container -->
+            <div class="toast-container position-fixed bottom-0 start-0 p-3" id="toastContainer"></div>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap و Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // تغییر تب‌ها
+    const tabs = document.querySelectorAll('.sidebar a.nav-link');
+    const tabContents = document.querySelectorAll('main section.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            tabContents.forEach(section => {
+                section.style.display = 'none';
+            });
+            const activeTab = tab.getAttribute('data-tab');
+            document.getElementById(activeTab).style.display = 'block';
+        });
+    });
+
+    // پیکربندی نمودار فروش
+    const salesConfig = {
+        type: 'bar',
+        data: {
+            labels: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور'],
+            datasets: [{
+                label: 'فروش (میلیون تومان)',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: '#d32f2f'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true },
+                title: {
+                    display: true,
+                    text: 'آمار فروش 6 ماه اخیر'
+                }
+            }
+        }
+    };
+
+    // ایجاد نمودار فروش
+    const salesChart = new Chart(document.getElementById('salesChart'), salesConfig);
+
+    // جستجو کاربران
+    document.getElementById('searchInputUsers').addEventListener('input', e => {
+        const val = e.target.value.toLowerCase();
+        document.querySelectorAll('#userTable tbody tr').forEach(row => {
+            row.style.display = row.textContent.toLowerCase().includes(val) ? '' : 'none';
+        });
+    });
+
+    // جستجو محصولات
+    document.getElementById('searchInputProducts').addEventListener('input', e => {
+        const val = e.target.value.toLowerCase();
+        document.querySelectorAll('#productTable tbody tr').forEach(row => {
+            row.style.display = row.textContent.toLowerCase().includes(val) ? '' : 'none';
+        });
+    });
+
+    // توست (اعلان‌ها)
+    function showToast(message, type = 'success') {
+        const container = document.getElementById('toastContainer');
+        const toastEl = document.createElement('div');
+        const toastId = 'toast' + Date.now();
+        toastEl.className = `toast align-items-center text-bg-${type} border-0`;
+        toastEl.role = 'alert';
+        toastEl.ariaLive = 'assertive';
+        toastEl.ariaAtomic = 'true';
+        toastEl.id = toastId;
+        toastEl.innerHTML = `
+            <div class="d-flex">
+                <div class="toast-body">${message}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="بستن"></button>
+            </div>
+        `;
+        container.appendChild(toastEl);
+        const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+        toast.show();
+        toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+    }
+
+    // افزودن/ویرایش کاربر
+    const userModal = new bootstrap.Modal(document.getElementById('userModal'));
+    const userForm = document.getElementById('userForm');
+    const userTableBody = document.querySelector('#userTable tbody');
+    let editingUserId = null;
+
+    userTableBody.addEventListener('click', e => {
+        const target = e.target.closest('button');
+        if (!target) return;
+
+        const tr = target.closest('tr');
+        const id = tr.children[0].textContent;
+        const name = tr.children[1].textContent;
+        const email = tr.children[2].textContent;
+        const role = tr.children[3].textContent;
+        const status = tr.children[4].textContent.trim();
+
+        if (target.classList.contains('edit-btn')) {
+            editingUserId = id;
+            userForm.reset();
+            document.getElementById('userId').value = id;
+            document.getElementById('userName').value = name;
+            document.getElementById('userEmail').value = email;
+            document.getElementById('userRole').value = role;
+            document.getElementById('userStatus').value = status;
+            document.getElementById('userModalLabel').textContent = 'ویرایش کاربر';
+            userModal.show();
+        }
+
+        if (target.classList.contains('delete-btn')) {
+            if (confirm(`آیا می‌خواهید کاربر "${name}" حذف شود؟`)) {
+                tr.remove();
+                showToast('کاربر حذف شد.', 'danger');
+            }
+        }
+    });
+
+    userForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('userName').value;
+        const email = document.getElementById('userEmail').value;
+        const role = document.getElementById('userRole').value;
+        const status = document.getElementById('userStatus').value;
+        const statusBadge = status === 'فعال'
+            ? `<span class="badge bg-success">${status}</span>`
+            : `<span class="badge bg-secondary">${status}</span>`;
+
+        if (editingUserId) {
+            const rows = userTableBody.querySelectorAll('tr');
+            rows.forEach(row => {
+                if (row.children[0].textContent === editingUserId) {
+                    row.children[1].textContent = name;
+                    row.children[2].textContent = email;
+                    row.children[3].textContent = role;
+                    row.children[4].innerHTML = statusBadge;
+                }
+            });
+            showToast('کاربر ویرایش شد.');
+        } else {
+            const newId = (userTableBody.children.length + 1).toString();
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${newId}</td>
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${role}</td>
+                <td>${statusBadge}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-warning edit-btn"><i class="fas fa-edit"></i> ویرایش</button>
+                    <button class="btn btn-sm btn-outline-danger delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                </td>
+            `;
+            userTableBody.appendChild(newRow);
+            showToast('کاربر جدید افزوده شد.');
+        }
+
+        editingUserId = null;
+        userForm.reset();
+        userModal.hide();
+    });
+</script>
+
+
+
+</body>
+</html>

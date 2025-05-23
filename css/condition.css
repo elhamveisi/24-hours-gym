@@ -1,0 +1,47 @@
+body {
+    font-family: 'Vazir', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff);
+    color: #2e7d32;
+
+}
+.rules-box {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
+.rules-box h1 {
+    font-weight: 900;
+    color: #00695c;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.rule-section {
+    margin-bottom: 30px;
+}
+.rule-section i {
+    font-size: 22px;
+    color: #26a69a;
+    margin-left: 10px;
+}
+footer {
+    background-color: #004d40;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+}
+.agree-btn {
+    background-color: #26a69a;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.agree-btn:hover {
+    background-color: #00796b;
+}

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>تماس با ما</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/tamas.css" rel="stylesheet" />
 </head>
 <body>
 
+<!-- هدر -->
 <nav class="navbar navbar-expand-lg ultra-navbar">
     <div class="container d-flex align-items-center justify-content-between">
         <a class="navbar-brandtext-green" href="#">24 HOURS</a>
@@ -23,33 +24,35 @@
                 <li class="nav-item"><a class="nav-link text-white" href="index.html">خانه</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="about.html">درباره ما</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="pro.html">محصولات</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="tamas.html">تماس با ما</a></li>
+                <li class="nav-item"><a class="nav-link text-white active" href="tamas.html">تماس با ما</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<div class="contact-container container my-5">
-    <h1 class="mb-4">تماس با ما</h1>
+
+<!-- فرم تماس -->
+<div class="contact-container shadow-lg">
+    <h1>تماس با ما</h1>
     <form>
         <div class="mb-3">
             <label for="fname" class="form-label">نام</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-                <input type="text" id="fname" name="fname" class="form-control" placeholder="نام خود را وارد کنید" required>
+                <input type="text" id="fname" name="fname" class="form-control" placeholder="نام خود را وارد کنید" required />
             </div>
         </div>
         <div class="mb-3">
             <label for="lname" class="form-label">نام خانوادگی</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-                <input type="text" id="lname" name="lname" class="form-control" placeholder="نام خانوادگی خود را وارد کنید" required>
+                <input type="text" id="lname" name="lname" class="form-control" placeholder="نام خانوادگی خود را وارد کنید" required />
             </div>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">ایمیل</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-                <input type="email" id="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید" required>
+                <input type="email" id="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید" required />
             </div>
         </div>
         <div class="mb-3">
@@ -59,10 +62,11 @@
                 <textarea id="message" name="message" rows="4" class="form-control" placeholder="پیام خود را وارد کنید" required></textarea>
             </div>
         </div>
-        <button type="submit" class="btn btn-success">ارسال پیام</button>
+        <button type="submit" class="btn btn-send">ارسال پیام</button>
     </form>
 </div>
 
+<!-- فوتر -->
 <footer class="bg-dark text-light pt-5 border-top border-danger">
     <div class="container">
         <div class="row gy-4">
@@ -101,7 +105,7 @@
     </div>
 </footer>
 
-<!-- Bootstrap JS (اجباری برای منو و سایر عملکردها) -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

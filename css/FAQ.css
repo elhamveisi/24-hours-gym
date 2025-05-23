@@ -1,0 +1,90 @@
+body {
+    font-family: 'Vazir', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    background: #f0f4f8;
+    color: #333;
+}
+.dark-mode {
+    background: #121212;
+    color: #eee;
+}
+.faq-container {
+    max-width: 900px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+.dark-mode .faq-container {
+    background: #1e1e1e;
+}
+.faq-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #009688;
+    margin-bottom: 30px;
+}
+.dark-mode .faq-title {
+    color: #4dd0e1;
+}
+.accordion-button {
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+.accordion-button::before {
+    content: '\f4fa';
+    font-family: "bootstrap-icons";
+    margin-left: 10px;
+    color: #009688;
+}
+.accordion-button:not(.collapsed) {
+    background-color: #e0f2f1;
+    color: #00695c;
+}
+.dark-mode .accordion-button:not(.collapsed) {
+    background-color: #2e3a3a;
+    color: #80cbc4;
+}
+.accordion-body {
+    background-color: #fdfdfd;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+.dark-mode .accordion-body {
+    background-color: #2a2a2a;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.toggle-btn {
+    display: block;
+    margin: 0 auto 20px;
+    border: none;
+    background: #009688;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+.toggle-btn:hover {
+    background: #00796b;
+}
+.dark-mode .toggle-btn {
+    background: #26a69a;
+    color: #000;
+}
+@media (max-width: 600px) {
+    .faq-container {
+        padding: 25px;
+    }
+    .faq-title {
+        font-size: 1.5rem;
+    }
+}
