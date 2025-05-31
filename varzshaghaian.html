@@ -152,6 +152,21 @@
   <!-- اسکریپت‌ها -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
-  <script src="java/varzashg.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const maps = document.querySelectorAll('img[usemap]');
+      maps.forEach(img => {
+        const init = () => {
+          if (window.imageMapResize) {
+            imageMapResize();
+          } else {
+            console.warn('imageMapResize library not found.');
+          }
+        };
+        img.complete ? init() : img.addEventListener('load', init);
+      });
+    });
+
+  </script>
 </body>
 </html>
