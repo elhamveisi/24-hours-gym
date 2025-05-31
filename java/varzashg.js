@@ -11,14 +11,3 @@ window.addEventListener('load', () => {
     img.complete ? init() : img.addEventListener('load', init);
   });
 });
-window.addEventListener('DOMContentLoaded', () => {
-  fetch('header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header-container').innerHTML = data)
-      .catch(err => console.error('خطا در لود هدر:', err));
-
-  fetch('footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer-container').innerHTML = data)
-      .catch(err => console.error('خطا در لود فوتر:', err));
-});
