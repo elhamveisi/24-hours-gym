@@ -3,249 +3,742 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>پنل کاربری</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <title>پنل کاربری پیشرفته باشگاه 24 ساعته</title>
+    <!-- Bootstrap RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <!-- Vazir Font -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         body {
             font-family: Vazir, sans-serif;
-        }
-        .sidebar {
-            background-color: #f8f9fa;
+            background: #e6f2e6;
+            color: #2a3b28;
+            overflow-x: hidden;
             min-height: 100vh;
-            border-left: 1px solid #dee2e6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(180deg, #a7d8a7 0%, #7bb67b 100%);
+            color: #2a3b28;
+            display: flex;
+            flex-direction: column;
+            padding-top: 1.5rem;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.12);
+            z-index: 1050;
+        }
+        .sidebar .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1.7rem;
+            letter-spacing: 3px;
+            color: #1e4620;
+            user-select: none;
+            text-shadow: 0 0 3px #94c994;
+        }
+        .sidebar nav a {
+            color: #315b31;
+            padding: 14px 30px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 10px 0 0 10px;
+            margin: 0 0 8px 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none !important;
+            box-shadow: none;
+        }
+        .sidebar nav a i {
+            min-width: 28px;
+            font-size: 1.4rem;
+            margin-left: 14px;
+            color: #4f7f4f;
+            transition: color 0.3s ease;
+        }
+        .sidebar nav a:hover, .sidebar nav a.active {
+            background-color: #679c67;
+            color: #f0f9f0;
+            box-shadow: inset 5px 0 15px #497949;
+            font-weight: 700;
+            text-decoration: none !important;
+        }
+        .sidebar nav a:hover i, .sidebar nav a.active i {
+            color: #d9f0d9;
+        }
+        .sidebar nav a.logout {
+            margin-top: auto;
+            background: #cd5340;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 10px 0 0 10px;
+            margin-bottom: 0;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar nav a.logout:hover {
+            background: #e37562;
+            color: #fff;
+        }
+
+        /* Content */
+        .content {
+            margin-right: 280px;
+            padding: 2.5rem 3rem 3rem;
+            min-height: 100vh;
+            background: #f3f9f3;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #d9efd9cc;
+            padding: 1rem 1.7rem;
+            border-radius: 16px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+            margin-bottom: 2.5rem;
+            user-select: none;
+        }
+        .navbar-custom .brand {
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: #2c5d2c;
+            letter-spacing: 1.5px;
+        }
+        .navbar-custom .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1.3rem;
+            color: #355935;
         }
         .profile-img {
-            width: 40px;
-            height: 40px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
+            object-fit: cover;
+            border: 3.5px solid #c0e0c0;
+            box-shadow: 0 0 16px #7bb67bcc;
+            transition: box-shadow 0.35s ease;
+            cursor: pointer;
+        }
+        .profile-img:hover {
+            box-shadow: 0 0 24px #7bb67bcc;
+        }
+        #usernameInput {
+            max-width: 240px;
+            padding: 0.4rem 0.8rem;
+            border: 2.8px solid #85bc85;
+            border-radius: 9px;
+            font-weight: 700;
+            font-size: 1.08rem;
+            color: #2a3b28;
+            outline-offset: 3px;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+            user-select: text;
+        }
+        #usernameInput:focus {
+            border-color: #4b7f4b;
+            box-shadow: 0 0 12px #4b7f4bbb;
+        }
+
+        /* Cards */
+        .card-custom {
+            background: white;
+            border-radius: 1.6rem;
+            box-shadow: 0 10px 28px rgba(107, 162, 107, 0.22);
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.8rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .card-custom:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 38px rgba(107, 162, 107, 0.36);
+        }
+        .card-custom h5 {
+            color: #3f7a3f;
+            margin-bottom: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+        }
+
+        /* Tabs */
+        .tab-section {
+            display: none;
+        }
+        .tab-section.active {
+            display: block;
+            animation: fadeInUp 0.7s ease forwards;
+        }
+        @keyframes fadeInUp {
+            0% {opacity: 0; transform: translateY(25px);}
+            100% {opacity: 1; transform: translateY(0);}
+        }
+
+        /* List styles */
+        .list-group-item {
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 1rem;
+            margin-bottom: 10px;
+            background: #d1e7d1;
+            color: #3c7d3c;
+            box-shadow: 0 5px 12px rgba(102, 160, 102, 0.15);
+            transition: background-color 0.3s ease;
+        }
+        .list-group-item:hover {
+            background-color: #a8d1a8;
+            cursor: default;
+        }
+
+        /* Icons */
+        .workout-icon {
+            color: #4a854a;
+            margin-left: 14px;
+            font-size: 1.55rem;
+            vertical-align: middle;
+            animation: pulseIcon 2.7s infinite;
+        }
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(1);}
+            50% { transform: scale(1.2);}
+        }
+
+        /* Table */
+        table {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(79, 128, 79, 0.22);
+            width: 100%;
+            background: #e9f3ea;
+        }
+        th, td {
+            padding: 16px 24px;
+            font-weight: 700;
+            color: #376137;
+            text-align: center;
+            border-bottom: 1px solid #b0c9b0;
+        }
+        th {
+            background: #94c994;
+            color: #214621;
+            font-size: 1.05rem;
+        }
+        tbody tr:hover {
+            background-color: #bde5bd;
+        }
+
+        /* Forms */
+        input, textarea, select, button {
+            font-family: Vazir, sans-serif;
+        }
+        input[type="file"] {
+            padding: 6px 0;
+        }
+        input, select, textarea {
+            border: 2px solid #95b695;
+            border-radius: 0.9rem;
+            padding: 0.7rem 1.2rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #2e4b2e;
+            outline-offset: 3px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #5d9a5d;
+            box-shadow: 0 0 12px #5d9a5d88;
+        }
+        button {
+            background: #4b7f4b;
+            border: none;
+            color: white;
+            font-weight: 700;
+            padding: 0.7rem 1.8rem;
+            border-radius: 1.1rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background: #3b6f3b;
+        }
+
+        /* Chat area */
+        .chat-window {
+            background: #f7fff7;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(92, 156, 92, 0.2);
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: #2b4a2b;
+        }
+        .chat-message {
+            margin-bottom: 1rem;
+            padding: 0.8rem 1.1rem;
+            border-radius: 1rem;
+            max-width: 75%;
+            word-break: break-word;
+            line-height: 1.3;
+            box-shadow: 0 0 8px rgba(100,180,100,0.15);
+            font-size: 1rem;
+        }
+        .chat-message.user {
+            background: #d1e7d1;
+            margin-left: auto;
+            text-align: left;
+            border-bottom-left-radius: 0;
+        }
+        .chat-message.bot {
+            background: #a6d6a6;
+            border-bottom-right-radius: 0;
+        }
+        .chat-input-area {
+            display: flex;
+            gap: 12px;
+        }
+        .chat-input-area input {
+            flex-grow: 1;
+            padding: 0.75rem 1.2rem;
+            border-radius: 1rem;
+            border: 2px solid #8bc88b;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #2a3b28;
+            outline-offset: 3px;
+            transition: border-color 0.3s ease;
+        }
+        .chat-input-area input:focus {
+            border-color: #4b7f4b;
+            box-shadow: 0 0 14px #4b7f4b99;
+        }
+
+        /* Dark mode */
+        body.dark-mode {
+            background: #212923;
+            color: #b8d6b8;
+        }
+        body.dark-mode .sidebar {
+            background: linear-gradient(180deg, #2b3c2b 0%, #1c291c 100%);
+            color: #8bc88b;
+            box-shadow: -4px 0 20px #1a301a;
+        }
+        body.dark-mode .sidebar nav a {
+            color: #7fb67f;
+        }
+        body.dark-mode .sidebar nav a:hover,
+        body.dark-mode .sidebar nav a.active {
+            background-color: #497949;
+            color: #d9f0d9;
+            box-shadow: inset 5px 0 15px #497949;
+        }
+        body.dark-mode .sidebar nav a.logout {
+            background: #9d4037;
+        }
+        body.dark-mode .sidebar nav a.logout:hover {
+            background: #c25b50;
+        }
+        body.dark-mode .content {
+            background: #2d382d;
+            color: #c4d9c4;
+        }
+        body.dark-mode .navbar-custom {
+            background: #2d412dcc;
+            color: #b5dbb5;
+        }
+        body.dark-mode .card-custom {
+            background: #2c3a2c;
+            box-shadow: 0 10px 28px rgba(30, 70, 30, 0.7);
+            color: #a2c9a2;
+        }
+        body.dark-mode input, body.dark-mode select, body.dark-mode textarea {
+            background: #223222;
+            border-color: #4b7f4b;
+            color: #b4d0b4;
+        }
+        body.dark-mode input:focus, body.dark-mode select:focus, body.dark-mode textarea:focus {
+            border-color: #6db76d;
+            box-shadow: 0 0 15px #6db76dbb;
+        }
+        body.dark-mode button {
+            background: #5a945a;
+            color: #e0f0e0;
+        }
+        body.dark-mode button:hover {
+            background: #3f7d3f;
+        }
+        body.dark-mode .chat-window {
+            background: #233223;
+            color: #a0d0a0;
+            box-shadow: 0 10px 30px rgba(70, 130, 70, 0.6);
+        }
+        body.dark-mode .chat-message.user {
+            background: #3a593a;
+            color: #c8e6c8;
+        }
+        body.dark-mode .chat-message.bot {
+            background: #4e754e;
+            color: #def0de;
+        }
+        body.dark-mode .chat-input-area input {
+            background: #223222;
+            border-color: #4b7f4b;
+            color: #a0d0a0;
+        }
+        body.dark-mode .chat-input-area input:focus {
+            border-color: #6db76d;
+            box-shadow: 0 0 14px #6db76dbb;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 70px;
+                padding-top: 1rem;
+            }
+            .sidebar nav a {
+                justify-content: center;
+                padding: 14px 0;
+                border-radius: 0;
+                margin-bottom: 5px;
+            }
+            .sidebar nav a i {
+                margin-left: 0;
+            }
+            .sidebar nav a span {
+                display: none;
+            }
+            .content {
+                margin-right: 70px;
+                padding: 2rem 1rem;
+            }
+            .navbar-custom {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            #usernameInput {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar -->
-        <nav class="col-md-2 d-none d-md-block sidebar">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fas fa-tachometer-alt"></i> داشبورد</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#orders-section"><i class="fas fa-box-open"></i> سفارش‌ها</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#settings-section"><i class="fas fa-cogs"></i> تنظیمات</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-danger" href="#"><i class="fas fa-sign-out-alt"></i> خروج</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="col-md-10 ms-sm-auto px-md-4">
-            <!-- Navbar -->
-            <nav class="navbar navbar-light">
-                <div class="container-fluid">
-                    <span class="navbar-brand mb-0 h1">پنل کاربری</span>
-                    <div class="d-flex align-items-center">
-                        <img src="img/user1.jpg" alt="Profile" class="profile-img me-2">
-                        <span>سلام</span>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="content">
-                <!-- Profile Card -->
-                <div class="card mb-4">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div>
-                            <h5 class="card-title">اطلاعات پروفایل</h5>
-                            <p class="card-text mb-1">نام: علی رضایی</p>
-                            <p class="card-text mb-0">ایمیل: ali@example.com</p>
-                        </div>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editProfileModal">ویرایش پروفایل</button>
-                    </div>
-                </div>
-
-                <!-- Orders Section -->
-                <div id="orders-section" class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">سفارش‌های اخیر</h5>
-                        <table class="table">
-                            <thead>
-                            <tr><th>کد سفارش</th><th>تاریخ</th><th>مبلغ</th><th>وضعیت</th><th></th></tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>#12345</td>
-                                <td>1404/02/01</td>
-                                <td>۱٬۳۲۰٬۰۰۰ تومان</td>
-                                <td><span class="badge bg-success">تحویل شده</span></td>
-                                <td>
-                                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#orderDetailModal"
-                                            data-order="#12345" data-date="1404/02/01" data-amount="۱٬۳۲۰٬۰۰۰" data-status="تحویل شده">
-                                        جزئیات
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#12346</td>
-                                <td>1404/02/05</td>
-                                <td>۸۵۰٬۰۰۰ تومان</td>
-                                <td><span class="badge bg-warning text-dark">در حال پردازش</span></td>
-                                <td>
-                                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#orderDetailModal"
-                                            data-order="#12346" data-date="1404/02/05" data-amount="۸۵۰٬۰۰۰" data-status="در حال پردازش">
-                                        جزئیات
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#orderHistoryModal">مشاهده تاریخچه کامل</button>
-                    </div>
-                </div>
-
-                <!-- Settings Section -->
-                <div id="settings-section" class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">تنظیمات حساب</h5>
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label">تغییر رمز عبور</label>
-                                <input type="password" class="form-control" placeholder="رمز فعلی">
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control" placeholder="رمز جدید">
-                            </div>
-                            <button type="submit" class="btn btn-danger">ذخیره تغییرات</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
+<div class="sidebar">
+    <div class="logo">باشگاه 24 ساعت</div>
+    <nav>
+        <a href="#" class="active" data-tab="dashboard"><i class="fa fa-tachometer-alt"></i> <span>داشبورد</span></a>
+        <a href="#" data-tab="nutrition"><i class="fa fa-apple-alt"></i> <span>برنامه غذایی</span></a>
+        <a href="#" data-tab="workouts"><i class="fa fa-dumbbell"></i> <span>تمرینات</span></a>
+        <a href="#" data-tab="orders"><i class="fa fa-box"></i> <span>سفارش‌ها</span></a>
+        <a href="#" data-tab="chat-nutrition"><i class="fa fa-comments"></i> <span>چت با مشاور غذایی</span></a>
+        <a href="#" data-tab="chat-trainer"><i class="fa fa-comments"></i> <span>چت با مربی ورزشی</span></a>
+        <a href="#" data-tab="settings"><i class="fa fa-cog"></i> <span>تنظیمات</span></a>
+        <a href="#" class="logout"><i class="fa fa-sign-out-alt"></i> <span>خروج</span></a>
+    </nav>
 </div>
 
-<!-- Edit Profile Modal -->
-<div class="modal fade" id="editProfileModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">ویرایش پروفایل</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label class="form-label">نام کامل</label>
-                        <input type="text" class="form-control" value="علی رضایی">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">ایمیل</label>
-                        <input type="email" class="form-control" value="ali@example.com">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">شماره موبایل</label>
-                        <input type="text" class="form-control" value="09120000000">
-                    </div>
-                    <button type="submit" class="btn btn-danger">ذخیره</button>
-                </form>
-            </div>
+<div class="content">
+    <div class="navbar-custom">
+        <div class="brand">پنل کاربری من</div>
+        <div class="user-info">
+            <input type="text" id="usernameInput" value="کاربر عزیز" title="نام کاربری را ویرایش کنید" />
+            <img src="https://i.pravatar.cc/56?u=24" alt="عکس پروفایل" class="profile-img" id="profileImage" title="کلیک برای تغییر عکس" />
+            <button id="toggleDarkMode" title="تغییر تم">🌙</button>
         </div>
     </div>
-</div>
 
-<!-- Order Detail Modal -->
-<div class="modal fade" id="orderDetailModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">جزئیات سفارش</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p><strong>کد سفارش:</strong> <span id="mdlOrderId"></span></p>
-                <p><strong>تاریخ:</strong> <span id="mdlOrderDate"></span></p>
-                <p><strong>مبلغ:</strong> <span id="mdlOrderAmount"></span> تومان</p>
-                <p><strong>وضعیت:</strong> <span id="mdlOrderStatus"></span></p>
-                <hr>
-                <h6>محصولات:</h6>
-                <ul id="mdlOrderProducts" class="list-group">
-                    <li class="list-group-item">پروتئین وی ×2 – ۱,۰۰۰,۰۰۰ تومان</li>
-                    <li class="list-group-item">کراتین ×1 – ۳۰۰,۰۰۰ تومان</li>
-                </ul>
+    <!-- داشبورد -->
+    <section id="dashboard" class="tab-section active">
+        <div class="card-custom">
+            <h5>نمودار پیشرفت وزن</h5>
+            <canvas id="weightChart" height="130"></canvas>
+        </div>
+        <div class="card-custom">
+            <h5>اطلاعیه‌ها</h5>
+            <ul class="list-group">
+                <li class="list-group-item">تمرین روزانه شما ثبت شد.</li>
+                <li class="list-group-item">برنامه غذایی هفته آینده آماده است.</li>
+                <li class="list-group-item">پیشنهاد تخفیف برای اشتراک طلایی.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- برنامه غذایی -->
+    <section id="nutrition" class="tab-section">
+        <div class="card-custom">
+            <h5>برنامه غذایی شما</h5>
+            <p>در اینجا برنامه غذایی هفتگی شما نمایش داده می‌شود.</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>روز</th><th>صبحانه</th><th>ناهار</th><th>شام</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td>شنبه</td><td>نان سنگک و پنیر</td><td>خورشت سبزی</td><td>سالاد و مرغ</td></tr>
+                <tr><td>یکشنبه</td><td>جو دو سر و عسل</td><td>ماهی و سبزیجات</td><td>سوپ سبزیجات</td></tr>
+                <tr><td>دوشنبه</td><td>املت و سبزی</td><td>کباب برگ</td><td>سالاد فصل</td></tr>
+                <tr><td>سه‌شنبه</td><td>شیر و نان</td><td>خورشت قورمه سبزی</td><td>ماهی و سبزی</td></tr>
+                <tr><td>چهارشنبه</td><td>مغز گردو و عسل</td><td>جوجه کباب</td><td>سالاد شیرازی</td></tr>
+                <tr><td>پنجشنبه</td><td>کیک سبزیجات</td><td>خوراک لوبیا</td><td>سوپ جو</td></tr>
+                <tr><td>جمعه</td><td>پنکیک</td><td>کباب کوبیده</td><td>سالاد فصل</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- تمرینات -->
+    <section id="workouts" class="tab-section">
+        <div class="card-custom">
+            <h5>تمرینات ورزشی شما</h5>
+            <ul class="list-group">
+                <li class="list-group-item">دویدن ۵ کیلومتر <i class="fas fa-running workout-icon"></i></li>
+                <li class="list-group-item">تمرین وزنه ۴۵ دقیقه <i class="fas fa-dumbbell workout-icon"></i></li>
+                <li class="list-group-item">یوگا ۳۰ دقیقه <i class="fas fa-spa workout-icon"></i></li>
+                <li class="list-group-item">شنا ۲۰ دقیقه <i class="fas fa-swimmer workout-icon"></i></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- سفارش‌ها -->
+    <section id="orders" class="tab-section">
+        <div class="card-custom">
+            <h5>سفارش‌های اخیر شما</h5>
+            <table>
+                <thead>
+                <tr>
+                    <th>شماره سفارش</th>
+                    <th>محصول</th>
+                    <th>تاریخ</th>
+                    <th>وضعیت</th>
+                </tr>
+                </thead>
+                <tbody id="ordersList">
+                <tr>
+                    <td>45321</td>
+                    <td>شلوار ورزشی</td>
+                    <td>1403/05/12</td>
+                    <td>ارسال شده</td>
+                </tr>
+                <tr>
+                    <td>45322</td>
+                    <td>کفش دویدن</td>
+                    <td>1403/05/15</td>
+                    <td>در حال پردازش</td>
+                </tr>
+                <tr>
+                    <td>45323</td>
+                    <td>تیشرت ورزشی</td>
+                    <td>1403/05/20</td>
+                    <td>لغو شده</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- چت با مشاور غذایی -->
+    <section id="chat-nutrition" class="tab-section">
+        <div class="card-custom">
+            <h5>چت با مشاور غذایی</h5>
+            <div class="chat-window" id="chatNutritionWindow"></div>
+            <div class="chat-input-area">
+                <input type="text" id="chatNutritionInput" placeholder="پیام خود را بنویسید..." />
+                <button id="chatNutritionSend">ارسال</button>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Order History Modal -->
-<div class="modal fade" id="orderHistoryModal" tabindex="-1">
-    <div class="modal-dialog modal-xl modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">تاریخچه سفارش‌ها</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <table class="table">
-                    <thead><tr><th>کد</th><th>تاریخ</th><th>مبلغ</th><th>وضعیت</th></tr></thead>
-                    <tbody>
-                    <tr><td>#12341</td><td>1404/01/10</td><td>۵۰۰٬۰۰۰ تومان</td><td><span class="badge bg-success">تحویل شده</span></td></tr>
-                    <tr><td>#12342</td><td>1404/01/20</td><td>۲۳۰٬۰۰۰ تومان</td><td><span class="badge bg-danger">لغو شده</span></td></tr>
-                    <tr><td>#12343</td><td>1404/01/25</td><td>۱٬۰۰۰٬۰۰۰ تومان</td><td><span class="badge bg-warning text-dark">در حال بررسی</span></td></tr>
-                    </tbody>
-                </table>
+    <!-- چت با مربی ورزشی -->
+    <section id="chat-trainer" class="tab-section">
+        <div class="card-custom">
+            <h5>چت با مربی ورزشی</h5>
+            <div class="chat-window" id="chatTrainerWindow"></div>
+            <div class="chat-input-area">
+                <input type="text" id="chatTrainerInput" placeholder="پیام خود را بنویسید..." />
+                <button id="chatTrainerSend">ارسال</button>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Toast Notification -->
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-    <div id="liveToast" class="toast text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body">عملیات با موفقیت انجام شد.</div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    <!-- تنظیمات -->
+    <section id="settings" class="tab-section">
+        <div class="card-custom">
+            <h5>تنظیمات حساب کاربری</h5>
+            <form id="settingsForm">
+                <div class="mb-3">
+                    <label for="usernameChange" class="form-label">نام کاربری جدید</label>
+                    <input type="text" class="form-control" id="usernameChange" placeholder="نام کاربری خود را وارد کنید" />
+                </div>
+                <div class="mb-3">
+                    <label for="profilePhoto" class="form-label">تغییر عکس پروفایل</label>
+                    <input type="file" class="form-control" id="profilePhoto" accept="image/*" />
+                </div>
+                <div class="mb-3">
+                    <label for="passwordChange" class="form-label">رمز عبور جدید</label>
+                    <input type="password" class="form-control" id="passwordChange" placeholder="رمز عبور جدید" />
+                </div>
+                <div class="mb-3">
+                    <label for="passwordConfirm" class="form-label">تکرار رمز عبور جدید</label>
+                    <input type="password" class="form-control" id="passwordConfirm" placeholder="تکرار رمز عبور" />
+                </div>
+                <button type="submit">ذخیره تغییرات</button>
+            </form>
         </div>
-    </div>
+    </section>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    const orderDetailModal = document.getElementById('orderDetailModal');
-    orderDetailModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        document.getElementById('mdlOrderId').textContent = button.getAttribute('data-order');
-        document.getElementById('mdlOrderDate').textContent = button.getAttribute('data-date');
-        document.getElementById('mdlOrderAmount').textContent = button.getAttribute('data-amount');
-        document.getElementById('mdlOrderStatus').textContent = button.getAttribute('data-status');
+    // تغییر تب‌ها
+    const tabs = document.querySelectorAll('.sidebar nav a:not(.logout)');
+    const sections = document.querySelectorAll('.tab-section');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', e => {
+            e.preventDefault();
+            const target = tab.getAttribute('data-tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            sections.forEach(s => s.classList.remove('active'));
+            document.getElementById(target).classList.add('active');
+        });
     });
 
-    document.querySelector('#editProfileModal form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        document.querySelector('.card-text.mb-1').textContent = `نام: ${name}`;
-        document.querySelector('.card-text.mb-0').textContent = `ایمیل: ${email}`;
-        const modal = bootstrap.Modal.getInstance(document.getElementById('editProfileModal'));
-        modal.hide();
-        const toast = new bootstrap.Toast(document.getElementById('liveToast'));
-        toast.show();
+    // تغییر نام کاربری در navbar و فرم تنظیمات
+    const usernameInputNav = document.getElementById('usernameInput');
+    const usernameChangeInput = document.getElementById('usernameChange');
+    usernameChangeInput.value = usernameInputNav.value;
+    usernameChangeInput.addEventListener('input', () => {
+        usernameInputNav.value = usernameChangeInput.value;
+    });
+    usernameInputNav.addEventListener('input', () => {
+        usernameChangeInput.value = usernameInputNav.value;
     });
 
-    document.querySelector('#settings-section form').addEventListener('submit', function(e) {
+    // تغییر عکس پروفایل
+    const profileImage = document.getElementById('profileImage');
+    const profilePhotoInput = document.getElementById('profilePhoto');
+    profileImage.addEventListener('click', () => profilePhotoInput.click());
+    profilePhotoInput.addEventListener('change', e => {
+        const file = e.target.files[0];
+        if (file) {
+            const url = URL.createObjectURL(file);
+            profileImage.src = url;
+        }
+    });
+
+    // فرم تنظیمات
+    const settingsForm = document.getElementById('settingsForm');
+    settingsForm.addEventListener('submit', e => {
         e.preventDefault();
-        const toast = new bootstrap.Toast(document.getElementById('liveToast'));
-        toast.show();
+        const username = usernameChangeInput.value.trim();
+        const password = document.getElementById('passwordChange').value;
+        const passwordConfirm = document.getElementById('passwordConfirm').value;
+
+        if(password !== passwordConfirm) {
+            alert('رمز عبور و تکرار آن مطابقت ندارند.');
+            return;
+        }
+        alert('تغییرات با موفقیت ذخیره شد.');
+    });
+
+    // Dark Mode Toggle
+    const toggleDarkModeBtn = document.getElementById('toggleDarkMode');
+    toggleDarkModeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        toggleDarkModeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+
+    // نمودار پیشرفت وزن با Chart.js
+    const ctx = document.getElementById('weightChart').getContext('2d');
+    const weightChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر'],
+            datasets: [{
+                label: 'وزن (کیلوگرم)',
+                data: [75, 74, 73.5, 73, 72, 71.5, 70],
+                borderColor: '#4b7f4b',
+                backgroundColor: 'rgba(75,127,75,0.3)',
+                fill: true,
+                tension: 0.3,
+                pointRadius: 5,
+                pointBackgroundColor: '#2e4b2e',
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    min: 60,
+                    max: 80
+                }
+            }
+        }
+    });
+
+    // Chat functionality
+    function addMessage(containerId, message, sender) {
+        const container = document.getElementById(containerId);
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('chat-message', sender);
+        msgDiv.textContent = message;
+        container.appendChild(msgDiv);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    // Send chat message handlers
+    const chatNutritionInput = document.getElementById('chatNutritionInput');
+    const chatNutritionSend = document.getElementById('chatNutritionSend');
+    chatNutritionSend.addEventListener('click', () => {
+        if(chatNutritionInput.value.trim() === '') return;
+        addMessage('chatNutritionWindow', chatNutritionInput.value, 'user');
+        chatNutritionInput.value = '';
+        setTimeout(() => addMessage('chatNutritionWindow', 'پاسخ مشاور غذایی در حال آماده شدن است...', 'bot'), 1000);
+    });
+    chatNutritionInput.addEventListener('keydown', e => {
+        if(e.key === 'Enter') chatNutritionSend.click();
+    });
+
+    const chatTrainerInput = document.getElementById('chatTrainerInput');
+    const chatTrainerSend = document.getElementById('chatTrainerSend');
+    chatTrainerSend.addEventListener('click', () => {
+        if(chatTrainerInput.value.trim() === '') return;
+        addMessage('chatTrainerWindow', chatTrainerInput.value, 'user');
+        chatTrainerInput.value = '';
+        setTimeout(() => addMessage('chatTrainerWindow', 'پاسخ مربی ورزشی در حال آماده شدن است...', 'bot'), 1000);
+    });
+    chatTrainerInput.addEventListener('keydown', e => {
+        if(e.key === 'Enter') chatTrainerSend.click();
+    });
+
+    // Logout button
+    document.querySelector('.sidebar nav a.logout').addEventListener('click', e => {
+        e.preventDefault();
+        if(confirm('آیا می‌خواهید خارج شوید؟')) {
+            alert('شما خارج شدید!');
+        }
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

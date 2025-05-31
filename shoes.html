@@ -7,17 +7,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="css/shoes.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
+
+<!-- هدر داینامیک -->
+<div id="header-container"></div>
 
 <div class="container my-5">
     <!-- بخش جزئیات محصول -->
     <div class="row g-4">
         <div class="col-md-5">
-            <div class="col-md-5">
-                <div class="product-image">
-                    <img src="img/k4.webp" alt="کفش نایک ایر زوم">
-                </div>
+            <div class="product-image">
+                <img src="img/k4.webp" alt="کفش نایک ایر زوم" class="img-fluid rounded shadow-sm">
             </div>
         </div>
         <div class="col-md-7">
@@ -35,10 +37,12 @@
                         <option>۴۳</option>
                     </select>
                 </div>
-            <button class="btn btn-buy btn-lg w-100 mb-4">افزودن به سبد خرید <i class="fas fa-shopping-cart"></i></button>
+                <button class="btn btn-buy btn-lg w-100 mb-4">افزودن به سبد خرید <i class="fas fa-shopping-cart"></i></button>
+            </div>
         </div>
+    </div>
 
-    </div><!-- تب‌ها -->
+    <!-- تب‌ها -->
     <ul class="nav nav-tabs mt-5" id="productTabs" role="tablist">
         <li class="nav-item">
             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#desc">
@@ -56,6 +60,7 @@
             </button>
         </li>
     </ul>
+
     <div class="tab-content p-4 border border-top-0">
         <div class="tab-pane fade show active" id="desc">
             <p>کفش نایک ایر زوم طراحی شده برای دوندگان حرفه‌ای با راحتی فوق‌العاده.</p>
@@ -70,17 +75,13 @@
         </div>
         <div class="tab-pane fade" id="reviews">
             <div id="reviews-list">
-                <!-- نظرات کاربران نمایش داده می‌شود -->
+                <!-- نظرات اولیه -->
                 <div class="review mb-4">
                     <div class="d-flex justify-content-between">
                         <span><strong>کاربر علی:</strong> ۲ روز پیش</span>
                         <span class="text-warning"><i class="fas fa-star"></i> ۴/۵</span>
                     </div>
                     <p>کفش بسیار راحت و مناسب برای دویدن. کیفیت عالی!</p>
-                    <div>
-                        <button class="btn btn-sm btn-outline-success">👍🏻</button>
-                        <button class="btn btn-sm btn-outline-danger">👎🏻</button>
-                    </div>
                 </div>
                 <div class="review mb-4">
                     <div class="d-flex justify-content-between">
@@ -88,13 +89,42 @@
                         <span class="text-warning"><i class="fas fa-star"></i> ۵/۵</span>
                     </div>
                     <p>کفش عالی! راحتی فوق‌العاده‌ای داره و مناسب ورزش حرفه‌ای.</p>
-                    <div>
-                        <button class="btn btn-sm btn-outline-success">👍🏻</button>
-                        <button class="btn btn-sm btn-outline-danger">👎🏻</button>
+                </div>
+
+                <!-- نظرات مخفی اولیه -->
+                <div class="review mb-4 d-none">
+                    <div class="d-flex justify-content-between">
+                        <span><strong>کاربر نازنین:</strong> ۶ روز پیش</span>
+                        <span class="text-warning"><i class="fas fa-star"></i> ۵/۵</span>
                     </div>
+                    <p>با این کفش تونستم راحت‌تر بدوم. اصلاً پا رو خسته نمی‌کنه.</p>
+                </div>
+                <div class="review mb-4 d-none">
+                    <div class="d-flex justify-content-between">
+                        <span><strong>کاربر امین:</strong> ۷ روز پیش</span>
+                        <span class="text-warning"><i class="fas fa-star"></i> ۳/۵</span>
+                    </div>
+                    <p>کفی کفش خوبه ولی برای دویدن طولانی یه کم اذیت شدم.</p>
+                </div>
+                <div class="review mb-4 d-none">
+                    <div class="d-flex justify-content-between">
+                        <span><strong>کاربر نسرین:</strong> ۱۰ روز پیش</span>
+                        <span class="text-warning"><i class="fas fa-star"></i> ۴/۵</span>
+                    </div>
+                    <p>ظاهر کفش خیلی اسپرت و جذابه. جنس رویه هم عالیه.</p>
+                </div>
+                <div class="review mb-4 d-none">
+                    <div class="d-flex justify-content-between">
+                        <span><strong>کاربر محسن:</strong> ۱۲ روز پیش</span>
+                        <span class="text-warning"><i class="fas fa-star"></i> ۵/۵</span>
+                    </div>
+                    <p>کاملاً راضی‌ام. از خرید این کفش برای باشگاه خیلی خوشحالم.</p>
                 </div>
             </div>
-            <button class="btn-toggle-review mt-3" onclick="toggleReviewForm()">ارسال نظر جدید</button>
+
+            <button class="btn btn-outline-primary mt-3" onclick="showMoreReviews(event)">نمایش نظرات بیشتر</button>
+            <button class="btn btn-outline-secondary mt-3" onclick="toggleReviewForm()">ارسال نظر جدید</button>
+
             <form id="reviewForm" style="display:none; margin-top: 15px;">
                 <div class="mb-2">
                     <label>نام:</label>
@@ -119,12 +149,46 @@
         </div>
     </div>
 </div>
+
+<!-- فوتر داینامیک -->
+<div id="footer-container"></div>
+
 <script>
+    // لود هدر و فوتر
+    window.addEventListener('DOMContentLoaded', () => {
+        fetch('header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header-container').innerHTML = data)
+            .catch(err => console.error('خطا در لود هدر:', err));
+
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer-container').innerHTML = data)
+            .catch(err => console.error('خطا در لود فوتر:', err));
+    });
+
+    // نمایش 3 نظر در هر بار کلیک
+    function showMoreReviews(event) {
+        const hiddenReviews = document.querySelectorAll('#reviews-list .d-none');
+        let count = 0;
+        hiddenReviews.forEach(review => {
+            if (count < 3) {
+                review.classList.remove('d-none');
+                count++;
+            }
+        });
+        if (document.querySelectorAll('#reviews-list .d-none').length === 0) {
+            event.target.style.display = 'none';
+        }
+    }
+
+    // باز/بستن فرم نظر
     function toggleReviewForm() {
         const form = document.getElementById('reviewForm');
         form.style.display = form.style.display === 'block' ? 'none' : 'block';
     }
 
+    // امتیاز‌دهی با ستاره
     function rate(star) {
         const stars = document.querySelectorAll('.rating i');
         stars.forEach((s, i) => {

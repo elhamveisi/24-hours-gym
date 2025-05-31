@@ -1,16 +1,6 @@
 /* فونت فارسی Vazir */
 @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
 
-/* استایل عمومی */
-body {
-    font-family: 'Vazir', sans-serif;
-    background-color: #f8f9fa;
-    color: #eee;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    direction: rtl;
-}
 
 a {
     color: #ff6161;
@@ -152,9 +142,13 @@ button:hover, .btn:hover, .plan-button:hover, .contact-form button:hover {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease;
 }
 
-/* تصویر کاربر */
+.user-comment:hover {
+    transform: translateY(-5px);
+}
+
 .user-img {
     border-radius: 50%;
     width: 80px;
@@ -255,25 +249,518 @@ button:hover, .btn:hover, .plan-button:hover, .contact-form button:hover {
 .btn-neon:hover {
     background-color: #00cc66;
 }
+body {
+    font-family: 'Vazir', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    background: #f0f4f8;
+    color: #333;
+}
+.dark-mode {
+    background: #121212;
+    color: #eee;
+}
+.faq-container {
+    max-width: 900px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+.dark-mode .faq-container {
+    background: #1e1e1e;
+}
+.faq-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #009688;
+    margin-bottom: 30px;
+}
+.dark-mode .faq-title {
+    color: #4dd0e1;
+}
+.accordion-button {
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+.accordion-button::before {
+    content: '\f4fa';
+    font-family: "bootstrap-icons";
+    margin-left: 10px;
+    color: #009688;
+}
+.accordion-button:not(.collapsed) {
+    background-color: #e0f2f1;
+    color: #00695c;
+}
+.dark-mode .accordion-button:not(.collapsed) {
+    background-color: #2e3a3a;
+    color: #80cbc4;
+}
+.accordion-body {
+    background-color: #fdfdfd;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+.dark-mode .accordion-body {
+    background-color: #2a2a2a;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.toggle-btn {
+    display: block;
+    margin: 0 auto 20px;
+    border: none;
+    background: #009688;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+.toggle-btn:hover {
+    background: #00796b;
+}
+.dark-mode .toggle-btn {
+    background: #26a69a;
+    color: #000;
+}
+@media (max-width: 600px) {
+    .faq-container {
+        padding: 25px;
+    }
+    .faq-title {
+        font-size: 1.5rem;
+    }
+}.main-title {
+     font-size: 3rem;
+     color: #ff3b3b;
+     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+     margin-bottom: 1rem;
+     font-weight: 800;
+ }
+
+#clock {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #d9534f;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    font-family: 'Courier New', monospace;
+}
+
+.banner-subtext {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    #clock {
+        font-size: 3rem;
+    }
+
+    .banner-subtext {
+        font-size: 1rem;
+    }
+}/* بهبود کارت‌های پلن */
+.plan-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 30px 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    color: #333;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* عناوین */
+.plan-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* قیمت */
+.plan-price {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #e63946;
+    text-align: center;
+}
+
+/* لیست ویژگی‌ها */
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    color: #555;
+    font-weight: 500;
+    text-align: center;
+}
+
+.plan-features li {
+    margin-bottom: 10px;
+}
+
+/* دکمه ثبت‌نام */
+.plan-button {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+}
+
+.plan-button:hover {
+    background: #d62828;
+    box-shadow: 0 8px 25px rgba(214, 40, 40, 0.7);
+}
+
+/* رنگ‌های اختصاصی برای هر پلن */
+.plan-card.bronze {
+    background: linear-gradient(135deg, #b08d57, #d9c59d, #b08d57);
+    color: #3b2f2f;
+}
+
+.plan-card.bronze .plan-price {
+    color: #4a3926;
+}
+
+.plan-card.silver {
+    background: linear-gradient(135deg, #c0c0c0, #e0e0e0, #c0c0c0);
+    color: #333;
+}
+
+.plan-card.silver .plan-price {
+    color: #666;
+}
+
+.plan-card.gold {
+    background: linear-gradient(135deg, #ffd700, #fffacd, #ffd700);
+    color: #6b4f00;
+}
+
+.plan-card.gold .plan-price {
+    color: #a67c00;
+}
+
+/* برای واکنش‌گرایی */
+@media (max-width: 767px) {
+    .plan-card {
+        padding: 25px 15px;
+    }
+}
+
+.plan-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 25px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    font-family: 'Vazir', sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 30px rgba(0,0,0,0.15);
+}
+
+.plan-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.plan-price {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.plan-features li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+/* رنگ آیکون‌ها را خنثی نگه میداریم */
+.plan-features i {
+    color: #666;
+}
+
+/* رنگ‌های متن و عنوان ویژگی‌ها برای هر پلن */
+.bronze-text {
+    color: #b07a3f; /* رنگ برنزی */
+}
+
+.silver-text {
+    color: #7a8ca0; /* رنگ نقره‌ای */
+}
+
+.gold-text {
+    color: #d4af37; /* رنگ طلایی */
+}
+
+/* دکمه‌ها */
+.plan-button {
+    padding: 12px 0;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* رنگ دکمه‌ها برای هر پلن */
+.bronze-btn {
+    background-color: #b07a3f;
+    color: white;
+}
+
+.bronze-btn:hover {
+    background-color: #8a622f;
+}
+
+.silver-btn {
+    background-color: #7a8ca0;
+    color: white;
+}
+
+.silver-btn:hover {
+    background-color: #5f7284;
+}
+
+.gold-btn {
+    background-color: #d4af37;
+    color: #222;
+}
+
+.gold-btn:hover {
+    background-color: #b5942a;
+}
+footer a:hover {
+    color: #dc3545 !important; /* رنگ قرمز بوت‌استرپ */
+    transition: 0.3s ease;
+}
+footer {
+    background-color: #111;
+    color: #bbb;
+    padding: 3rem 1rem 2rem;
+    font-family: 'Vazir', sans-serif;
+    direction: rtl;
+    box-shadow: 0 -6px 15px rgba(0,255,128,0.2);
+    user-select: none;
+}
+
+footer .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* ستون‌های فوتر */
+footer .footer-column {
+    flex: 1 1 220px;
+    min-width: 220px;
+}
+
+/* عنوان ستون */
+footer .footer-column h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #00ff80;
+    text-shadow: 0 0 8px #00ff80;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+
+/* لینک‌ها */
+footer .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footer-column ul li {
+    margin-bottom: 12px;
+}
+
+footer .footer-column ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer .footer-column ul li a:hover {
+    color: #00ff80;
+    text-shadow: 0 0 10px #00ff80;
+}
+
+/* آیکون‌های اجتماعی */
+footer .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    display: inline-block;
+    color: #00ff80;
+    font-size: 1.6rem;
+    padding: 8px;
+    border-radius: 50%;
+    border: 1.5px solid #00ff80;
+    box-shadow: 0 0 10px #00ff80;
+    transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    background-color: #00ff80;
+    color: #111;
+    box-shadow: 0 0 20px #00ff80;
+    transform: scale(1.1);
+}
+
+/* فرم خبرنامه */
+footer .newsletter {
+    margin-top: 10px;
+}
+
+footer .newsletter input[type="email"] {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 30px 0 0 30px;
+    border: 2px solid #00ff80;
+    background: transparent;
+    color: #eee;
+    font-size: 1rem;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+footer .newsletter input[type="email"]::placeholder {
+    color: #aaa;
+}
+
+footer .newsletter button {
+    padding: 10px 20px;
+    border-radius: 0 30px 30px 0;
+    border: none;
+    background-color: #00ff80;
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00ff80;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+footer .newsletter button:hover {
+    background-color: #00cc66;
+    box-shadow: 0 0 20px #00cc66;
+}
+
+/* کپی‌رایت */
+footer .footer-bottom {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #555;
+    border-top: 1px solid #222;
+    padding-top: 1rem;
+    user-select: text;
+}
+
+/* واکنش‌گرایی */
+@media (max-width: 768px) {
+    footer .footer-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    footer .footer-column {
+        min-width: 100%;
+    }
+}
+.rounded-hover:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #d9534f !important; /* رنگ دلخواه مثلا زرد */
+}
 .scroll-to-top {
     position: fixed;
-    bottom: 30px;
-   right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: #dc3545;
+    bottom: 40px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    background-color: #28a745; /* سبز جذاب */
     color: white;
-    border: none;
     border-radius: 50%;
-    font-size: 20px;
-    box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.6);
+    cursor: pointer;
     display: none;
     align-items: center;
     justify-content: center;
+    font-size: 24px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     z-index: 9999;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    user-select: none;
+    animation: pulse-green 2.5s infinite;
 }
+
 .scroll-to-top:hover {
-    background-color: #bb2d3b;
-    transform: scale(1.1);
+    background-color: #218838;
+    transform: scale(1.15);
+    box-shadow: 0 6px 16px rgba(33, 136, 56, 0.8);
+}
+
+@keyframes pulse-green {
+    0%, 100% {
+        box-shadow: 0 0 8px rgba(40, 167, 69, 0.7), 0 0 20px rgba(40, 167, 69, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 16px rgba(40, 167, 69, 1), 0 0 32px rgba(40, 167, 69, 0.6);
+    }
 }

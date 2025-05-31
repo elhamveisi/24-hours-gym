@@ -2,6 +2,7 @@
 body {
     font-family: 'Vazir', sans-serif;
     color: #f5f5f5;
+    direction: rtl;
 }
 
 .ultra-navbar {
@@ -42,6 +43,7 @@ body {
 label {
     color: #a5d6a7;
     font-weight: 600;
+
 }
 
 .form-control {
@@ -53,6 +55,7 @@ label {
 .form-control::placeholder {
     color: #c8e6c9;
     opacity: 0.8;
+
 }
 
 .form-control:focus {

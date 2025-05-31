@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>تماس با ما</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
     <link href="css/tamas.css" rel="stylesheet" />
 </head>
 <body>
@@ -52,58 +53,74 @@
             <label for="email" class="form-label">ایمیل</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-                <input type="email" id="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید" required />
+                <input style="direction: rtl" type="email" id="email" name="email" class="form-control" placeholder="ایمیل خود را وارد کنید" required />
             </div>
         </div>
         <div class="mb-3">
             <label for="message" class="form-label">پیام</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-chat-left-dots-fill"></i></span>
-                <textarea id="message" name="message" rows="4" class="form-control" placeholder="پیام خود را وارد کنید" required></textarea>
+                <textarea  id="message" name="message" rows="4" class="form-control" placeholder="پیام خود را وارد کنید" required></textarea>
             </div>
         </div>
         <button type="submit" class="btn btn-send">ارسال پیام</button>
     </form>
 </div>
-
-<!-- فوتر -->
-<footer class="bg-dark text-light pt-5 border-top border-danger">
+<footer class="bg-dark text-light pt-5 border-top border-danger" dir="rtl">
     <div class="container">
-        <div class="row gy-4">
-            <div class="col-md-3">
-                <h3 class="text-neon-green fw-bold">24 HOURS</h3>
-                <p>تمرین کن، هر ساعت از شبانه‌روز! مجهزترین باشگاه با خدمات حرفه‌ای.</p>
+        <div class="row gy-5">
+
+            <!-- برند و توضیحات -->
+            <div class="col-md-4">
+                <a class="navbar-brand neon-logo fs-4 mb-3 d-inline-block" href="#">HOURS 24</a>
+                <p class="mb-4" style="line-height: 1.6;">
+                    تمرین کن، هر ساعت از شبانه‌روز!<br>
+                    مجهزترین باشگاه با خدمات حرفه‌ای و پشتیبانی ۲۴ ساعته.
+                </p>
+                <!-- شبکه‌های اجتماعی -->
+                <div class="d-flex justify-content-center align-items-center gap-4 mt-4 fs-4">
+                    <a href="#" class="text-light px-3 py-2 rounded social-icon" style="transition: background-color 0.3s, color 0.3s;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-light px-3 py-2 rounded social-icon" style="transition: background-color 0.3s, color 0.3s;">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://wa.me/989123456789" target="_blank" class="text-light px-3 py-2 rounded social-icon" style="transition: background-color 0.3s, color 0.3s;">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-light px-3 py-2 rounded social-icon" style="transition: background-color 0.3s, color 0.3s;">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+
+
             </div>
-            <div class="col-md-3">
-                <h5 class="text-danger mb-3"><i class="bi bi-link-45deg ms-2"></i>لینک‌ها</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>خانه</a></li>
-                    <li><a href="pro.html" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>محصولات</a></li>
-                    <li><a href="bmi_calculator.html" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>BMI</a></li>
-                    <li><a href="tamas.html" class="text-light text-decoration-none"><i class="bi bi-chevron-left ms-2"></i>تماس با ما</a></li>
+
+            <!-- لینک‌ها -->
+            <div class="col-md-4" >
+                <h5 class="text-danger mb-4"><i class="fas fa-link ms-2"></i>لینک‌های مفید</h5>
+                <ul class="list-unstyled lh-lg">
+                    <li><a href="#" class="text-light text-decoration-none">خانه</a></li>
+                    <li><a href="pro.html" class="text-light text-decoration-none">محصولات</a></li>
+                    <li><a href="bmi_calculator.html" class="text-light text-decoration-none">محاسبه BMI</a></li>
+                    <li><a href="tamas.html" class="text-light text-decoration-none">تماس با ما</a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
-                <h5 class="text-danger mb-3"><i class="bi bi-telephone ms-2"></i>ارتباط با ما</h5>
-                <p><i class="bi bi-geo-alt ms-2"></i> تهران، خیابان مثال، باشگاه ۲۴</p>
-                <p><a href="tel:+982112345678" class="text-light"><i class="bi bi-telephone ms-2"></i> ۰۲۱-۱۲۳۴۵۶۷۸</a></p>
-                <p><i class="bi bi-envelope ms-2"></i> info@24hoursgym.ir</p>
+
+            <!-- اطلاعات تماس -->
+            <div class="col-md-4">
+                <h5 class="text-danger mb-4"><i class="fas fa-phone ms-2"></i>اطلاعات تماس</h5>
+                <ul class="list-unstyled lh-lg">
+                    <li><i class="fas fa-map-marker-alt ms-2"></i> تهران، خیابان مثال، باشگاه ۲۴</li>
+                    <li><a href="tel:+982112345678" class="text-light text-decoration-none"><i class="fas fa-phone ms-2"></i>۰۲۱-۱۲۳۴۵۶۷۸</a></li>
+                    <li><a href="mailto:info@24hoursgym.ir" class="text-light text-decoration-none"><i class="fas fa-envelope ms-2"></i>info@24hoursgym.ir</a></li>
+                </ul>
             </div>
-            <div class="col-md-3">
-                <h5 class="text-danger mb-3"><i class="bi bi-share ms-2"></i>دنبال کنید</h5>
-                <div class="d-flex gap-3 fs-4">
-                    <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-telegram"></i></a>
-                    <a href="https://wa.me/989123456789" class="text-light" target="_blank"><i class="bi bi-whatsapp"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center border-top border-secondary mt-4 pt-3 text-secondary small">
-            © 2025 باشگاه 24 ساعته | طراحی با ❤️ توسط تیم 24H
+
         </div>
     </div>
 </footer>
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>

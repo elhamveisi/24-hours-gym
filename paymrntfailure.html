@@ -3,50 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>پرداخت ناموفق</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- فونت و آیکون‌ها -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Vazir', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            flex-direction: column;
-        }
-        h2 {
-            color: #dc3545;
-            margin-top: 20px;
-        }
-        .btn {
-            padding: 10px 20px;
-            margin-top: 30px;
-            background-color: #dc3545;
-            color: #fff;
-            border-radius: 8px;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .btn:hover {
-            background-color: #c82333;
-        }
-    </style>
+    <link href="css/payfali.css" rel="stylesheet">
 </head>
 <body>
 
-<lottie-player
-        src="https://assets2.lottiefiles.com/packages/lf20_qp1q7mct.json"
-        background="transparent"
-        speed="1"
-        style="width: 250px; height: 250px;"
-        autoplay>
-</lottie-player>
+<div class="failed-box">
+    <lottie-player
+            src="https://assets10.lottiefiles.com/packages/lf20_qp1q7mct.json"
+            background="transparent"
+            speed="1"
+            style="width: 180px; height: 180px; margin: auto;"
+            autoplay>
+    </lottie-player>
 
-<h2>پرداخت ناموفق بود ❌</h2>
+    <h2>پرداخت ناموفق بود ❌</h2>
+    <p>سفارش شما با موفقیت ثبت شده، اما پرداخت انجام نشد. لطفاً دوباره تلاش کنید.</p>
 
-<a class="btn" href="checkout.html">تلاش مجدد</a>
+    <!-- نمایش محصول (می‌تونی تکرارش کنی اگر سفارش چندمحصولیه) -->
+    <div class="product-card">
+        <img src="img/k3.webp" alt="محصول">
+        <div class="product-details">
+            <h3>کفش ورزشی آدیداس مدل RunPro</h3>
+            <p><strong>کد محصول:</strong> AD-4567</p>
+            <p><strong>قیمت:</strong> ۲,۵۰۰,۰۰۰ تومان</p>
+            <p><strong>ویژگی‌ها:</strong> ضدآب، سبک، مناسب دویدن</p>
+        </div>
+    </div>
+
+    <!-- دکمه‌ها -->
+    <div class="btns">
+        <a href="pay-again.html" class="btn retry">
+            <i class="bi bi-arrow-repeat"></i>
+            تلاش مجدد برای پرداخت
+        </a>
+        <a href="orders.html" class="btn orders">
+            <i class="bi bi-box-seam"></i>
+            مشاهده سفارشات
+        </a>
+        <a href="index.html" class="btn home">
+            <i class="bi bi-house-door-fill"></i>
+            بازگشت به خانه
+        </a>
+    </div>
+</div>
 
 </body>
 </html>

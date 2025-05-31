@@ -2,90 +2,100 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>برنامه غذایی هوشمند</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
-  <link href="css/barnameh.css" rel="stylesheet">
-  <link href="css/index.css" rel="stylesheet">
-
+  <title>محاسبه BMI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #111;
+      color: #ccc;
+      font-family: 'Vazirmatn', sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+    .container {
+      max-width: 400px;
+      margin-top: 100px;
+    }
+    .result {
+      font-weight: bold;
+    }
+    .normal {
+      color: #28a745;
+    }
+    .danger {
+      color: #dc3545;
+    }
+    .form-control {
+      background-color: #222;
+      border: 1px solid #555;
+      color: #ccc;
+    }
+    .form-control:focus {
+      background-color: #222;
+      color: #fff;
+      border-color: #28a745;
+      box-shadow: none;
+    }
+    .btn-primary {
+      background-color: #28a745;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
-
-<!-- هدر -->
-<div id="header-container"></div>
-
-<!-- محتوای اصلی -->
-<div class="container-fluid px-0">
-  <div class="row justify-content-center">
-    <div class="col-12 px-0">
-      <img src="img/baner3.jpg" class="img-fluid" alt="بنر">
+<div class="container bg-dark p-4 rounded shadow">
+  <h2 class="text-center mb-4">محاسبه BMI</h2>
+  <form id="bmiForm">
+    <div class="mb-3">
+      <label for="weight" class="form-label">وزن (کیلوگرم):</label>
+      <input type="number" class="form-control" id="weight" required>
     </div>
-  </div>
-</div>
-
-<div class="container d-flex justify-content-center align-items-center flex-column">
-  <h2 class="text-center mb-4 text-black">برنامه غذایی هوشمند</h2>
-
-  <form id="dietForm" class="row g-3">
-    <div class="col-md-4">
-      <label for="gender" class="form-label">جنسیت</label>
-      <select class="form-select" id="gender">
-        <option selected>انتخاب کنید...</option>
-        <option value="male">مرد</option>
-        <option value="female">زن</option>
-      </select>
+    <div class="mb-3">
+      <label for="height" class="form-label">قد (سانتی‌متر):</label>
+      <input type="number" class="form-control" id="height" required>
     </div>
-    <div class="col-md-2">
-      <label for="age" class="form-label">سن</label>
-      <input type="number" class="form-control" id="age">
-    </div>
-    <div class="col-md-3">
-      <label for="weight" class="form-label">وزن (کیلوگرم)</label>
-      <input type="number" class="form-control" id="weight">
-    </div>
-    <div class="col-md-3">
-      <label for="goal" class="form-label">هدف</label>
-      <select class="form-select" id="goal">
-        <option selected>انتخاب کنید...</option>
-        <option value="gain">افزایش وزن</option>
-        <option value="lose">کاهش وزن</option>
-        <option value="maintain">نگهداری وزن</option>
-      </select>
-    </div>
-    <div class="col-12 text-center">
-      <button type="button" class="btn btn-custom mt-3 px-5" onclick="generateMealPlan()">دریافت برنامه</button>
-    </div>
+    <button type="submit" class="btn btn-primary w-100">محاسبه</button>
   </form>
-
-  <div id="mealPlan" class="meal-box d-none">
-    <h4 class="text-center mb-3">برنامه پیشنهادی امروز</h4>
-    <ul class="list-group" id="mealList"></ul>
-  </div>
+  <div id="result" class="result mt-4 text-center"></div>
 </div>
 
-<!-- فوتر -->
-<div id="footer-container"></div>
-
-<!-- اسکریپت‌ها -->
-<script src="java/barnameh.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    fetch('header.html')
-            .then(res => res.text())
-            .then(data => {
-              document.getElementById('header-container').innerHTML = data;
-            })
-            .catch(err => console.error('خطا در لود هدر:', err));
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("bmiForm");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
 
-    fetch('footer.html')
-            .then(res => res.text())
-            .then(data => {
-              document.getElementById('footer-container').innerHTML = data;
-            })
-            .catch(err => console.error('خطا در لود فوتر:', err));
+      const weight = parseFloat(document.getElementById("weight").value);
+      const height = parseFloat(document.getElementById("height").value) / 100;
+
+      if (!weight || !height) {
+        alert("لطفاً وزن و قد را وارد کنید.");
+        return;
+      }
+
+      const bmi = weight / (height * height);
+      let message = "";
+      let cssClass = "";
+
+      if (bmi < 18.5) {
+        message = BMI شما: ${bmi.toFixed(1)} - کم‌وزن;
+        cssClass = "danger";
+      } else if (bmi >= 18.5 && bmi < 25) {
+        message = BMI شما: ${bmi.toFixed(1)} - نرمال;
+        cssClass = "normal";
+      } else {
+        message = BMI شما: ${bmi.toFixed(1)} - اضافه‌وزن;
+        cssClass = "danger";
+      }
+
+      const resultDiv = document.getElementById("result");
+      resultDiv.textContent = message;
+      resultDiv.className = result mt-4 text-center ${cssClass};
+    });
   });
 </script>
-
 </body>
 </html>

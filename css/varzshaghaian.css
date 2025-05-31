@@ -1,0 +1,34 @@
+/* فونت و پس‌زمینه کلی */
+body {
+  font-family: "Vazirmatn", sans-serif;
+  background: #fff;
+}
+
+/* بنر با افکت محو تدریجی */
+.banner {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* افکت Hover برای کارت‌ها */
+.hover-up {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-up:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+/* انیمیشن Fade-In تدریجی کارت‌ها */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+
+.fade-in.delay-1 { animation-delay: 0.2s; }
+.fade-in.delay-2 { animation-delay: 0.4s; }
+
+/* کلیدواژه‌های انیمیشن */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}

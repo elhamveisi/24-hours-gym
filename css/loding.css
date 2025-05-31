@@ -1,0 +1,56 @@
+body {
+  background-color: #ffffff;
+  color: #afabab;
+  font-family: 'Vazir', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader-container {
+  text-align: center;
+}
+
+.rotating-dumbbell {
+  animation: rotate 2s linear infinite;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plate, .bar {
+  border-radius: 5px;
+}
+
+.plate {
+  width: 20px;
+  height: 40px;
+  background: #530601;
+  margin: 0 5px;
+}
+
+.bar {
+  width: 60px;
+  height: 10px;
+  background: #530601;
+}
+
+.loader-text {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
